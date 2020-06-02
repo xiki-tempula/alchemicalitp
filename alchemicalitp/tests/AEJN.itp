@@ -1,0 +1,320 @@
+[ moleculetype ]
+; Name        nrexcl
+AEJN  3
+
+ [ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+     1          HC      1    ACE   HH31      1   0.112300     1.0080
+     2          CT      1    ACE    CH3      2  -0.366200    12.0100
+     3          HC      1    ACE   HH32      3   0.112300     1.0080
+     4          HC      1    ACE   HH33      4   0.112300     1.0080
+     5           C      1    ACE      C      5   0.597200    12.0100
+     6           O      1    ACE      O      6  -0.567900    16.0000
+     7           N      2    E2J      N      7  -0.516300    14.0100           N  -0.415700    14.0100
+     8           H      2    E2J      H      8   0.293600     1.0080           H   0.271900     1.0080
+     9          CT      2    E2J     CA      9   0.039700    12.0100          CT   0.014500    12.0100
+    10          H1      2    E2J     HA     10   0.110500     1.0080          H1   0.077900     1.0080
+    11          CT      2    E2J     CB     11   0.056000    12.0100          CT  -0.007100    12.0100
+    12          HC      2    E2J    HB1     12  -0.017300     1.0080          HC   0.025600     1.0080
+    13          HC      2    E2J    HB2     13  -0.017300     1.0080          HC   0.025600     1.0080
+    14          CT      2    E2J     CG     14   0.013600    12.0100          CT  -0.017400    12.0100
+    15          HC      2    E2J    HG1     15  -0.042500     1.0080          HC   0.043000     1.0080
+    16          HC      2    E2J    HG2     16  -0.042500     1.0080          HC   0.043000     1.0080
+    17           C      2    E2J     CD     17   0.805400    12.0100           C   0.680100    12.0100
+    18          O2      2    E2J    OE1     18  -0.818800    16.0000           O  -0.583800    16.0000
+    19          O2      2    E2J    OE2     19  -0.818800    16.0000          OH  -0.651100    16.0000
+    20           C      2    E2J      C     20   0.536600    12.0100           C   0.597300    12.0100
+    21           O      2    E2J      O     21  -0.581900    16.0000           O  -0.567900    16.0000
+    22      DUM_HO      2    E2J   DHE2     22   0.000000     1.0000          HO   0.464100     1.0080
+    23           N      3    NME      N     23  -0.415700    14.0100
+    24           H      3    NME      H     24   0.271900     1.0080
+    25          CT      3    NME    CH3     25  -0.149000    12.0100
+    26          H1      3    NME   HH31     26   0.097600     1.0080
+    27          H1      3    NME   HH32     27   0.097600     1.0080
+    28          H1      3    NME   HH33     28   0.097600     1.0080
+
+ [ bonds ]
+;  ai    aj funct            c0            c1            c2            c3
+     1      2      1
+     2      3      1
+     2      4      1
+     2      5      1
+     5      6      1
+     5      7      1       0.133500  410032.000000       0.133500  410032.000000
+     7      8      1       0.101000  363171.200000       0.101000  363171.200000
+     7      9      1       0.144900  282001.600000       0.144900  282001.600000
+     9     10      1       0.109000  284512.000000       0.109000  284512.000000
+     9     11      1       0.152600  259408.000000       0.152600  259408.000000
+     9     20      1       0.152200  265265.600000       0.152200  265265.600000
+    11     12      1       0.109000  284512.000000       0.109000  284512.000000
+    11     13      1       0.109000  284512.000000       0.109000  284512.000000
+    11     14      1       0.152600  259408.000000       0.152600  259408.000000
+    14     15      1       0.109000  284512.000000       0.109000  284512.000000
+    14     16      1       0.109000  284512.000000       0.109000  284512.000000
+    14     17      1       0.152200  265265.600000       0.152200  265265.600000
+    17     18      1       0.125000  548940.800000       0.122900  476976.000000
+    17     19      1       0.125000  548940.800000       0.136400  376560.000000
+    19     22      1       0.096000  462750.400000       0.096000  462750.400000
+    20     21      1       0.122900  476976.000000       0.122900  476976.000000
+    20     23      1       0.133500  410032.000000       0.133500  410032.000000
+    23     24      1
+    23     25      1
+    25     26      1
+    25     27      1
+    25     28      1
+
+ [ pairs ]
+;  ai    aj funct            c0            c1            c2            c3
+     1      6      1
+     1      7      1
+     2      8      1
+     2      9      1
+     3      6      1
+     3      7      1
+     4      6      1
+     4      7      1
+     5     10      1
+     5     11      1
+     5     20      1
+     6      8      1
+     6      9      1
+     7     12      1
+     7     13      1
+     7     14      1
+     7     21      1
+     7     23      1
+     8     10      1
+     8     11      1
+     8     20      1
+     9     15      1
+     9     16      1
+     9     17      1
+     9     24      1
+     9     25      1
+    10     12      1
+    10     13      1
+    10     14      1
+    10     21      1
+    10     23      1
+    11     18      1
+    11     19      1
+    11     21      1
+    11     23      1
+    12     15      1
+    12     16      1
+    12     17      1
+    12     20      1
+    13     15      1
+    13     16      1
+    13     17      1
+    13     20      1
+    14     20      1
+    14     22      1
+    15     18      1
+    15     19      1
+    16     18      1
+    16     19      1
+    18     22      1
+    20     26      1
+    20     27      1
+    20     28      1
+    21     24      1
+    21     25      1
+    24     26      1
+    24     27      1
+    24     28      1
+
+ [ angles ]
+;  ai    aj    ak funct            c0            c1            c2            c3
+     1      2      3      1
+     1      2      4      1
+     1      2      5      1
+     3      2      4      1
+     3      2      5      1
+     4      2      5      1
+     2      5      6      1
+     2      5      7      1     116.600000     585.760000     116.600000     585.760000 ; CH3 C N
+     6      5      7      1     122.900000     669.440000     122.900000     669.440000 ; O C N
+     5      7      8      1     120.000000     418.400000     120.000000     418.400000 ; C N H
+     5      7      9      1     121.900000     418.400000     121.900000     418.400000 ; C N CA
+     8      7      9      1     118.040000     418.400000     118.040000     418.400000 ; H N CA
+     7      9     10      1     109.500000     418.400000     109.500000     418.400000 ; N CA HA
+     7      9     11      1     109.700000     669.440000     109.700000     669.440000 ; N CA CB
+     7      9     20      1     110.100000     527.184000     110.100000     527.184000 ; N CA C
+    10      9     11      1     109.500000     418.400000     109.500000     418.400000 ; HA CA CB
+    10      9     20      1     109.500000     418.400000     109.500000     418.400000 ; HA CA C
+    11      9     20      1     111.100000     527.184000     111.100000     527.184000 ; CB CA C
+     9     11     12      1     109.500000     418.400000     109.500000     418.400000 ; CA CB HB1
+     9     11     13      1     109.500000     418.400000     109.500000     418.400000 ; CA CB HB2
+     9     11     14      1     109.500000     334.720000     109.500000     334.720000 ; CA CB CG
+    12     11     13      1     109.500000     292.880000     109.500000     292.880000 ; HB1 CB HB2
+    12     11     14      1     109.500000     418.400000     109.500000     418.400000 ; HB1 CB CG
+    13     11     14      1     109.500000     418.400000     109.500000     418.400000 ; HB2 CB CG
+    11     14     15      1     109.500000     418.400000     109.500000     418.400000 ; CB CG HG1
+    11     14     16      1     109.500000     418.400000     109.500000     418.400000 ; CB CG HG2
+    11     14     17      1     111.100000     527.184000     111.100000     527.184000 ; CB CG CD
+    15     14     16      1     109.500000     292.880000     109.500000     292.880000 ; HG1 CG HG2
+    15     14     17      1     109.500000     418.400000     109.500000     418.400000 ; HG1 CG CD
+    16     14     17      1     109.500000     418.400000     109.500000     418.400000 ; HG2 CG CD
+    14     17     18      1     117.000000     585.760000     120.400000     669.440000 ; CG CD OE1
+    14     17     19      1     117.000000     585.760000     110.000000     669.440000 ; CG CD OE2
+    18     17     19      1     126.000000     669.440000     120.000000     669.440000 ; OE1 CD OE2
+    17     19     22      1     113.000000     418.400000     113.000000     418.400000 ; CD OE2 DHE2
+     9     20     21      1     120.400000     669.440000     120.400000     669.440000 ; CA C O
+     9     20     23      1     116.600000     585.760000     116.600000     585.760000 ; CA C N
+    21     20     23      1     122.900000     669.440000     122.900000     669.440000 ; O C N
+    20     23     24      1     120.000000     418.400000     120.000000     418.400000 ; C N H
+    20     23     25      1     121.900000     418.400000     121.900000     418.400000 ; C N CH3
+    24     23     25      1
+    23     25     26      1
+    23     25     27      1
+    23     25     28      1
+    26     25     27      1
+    26     25     28      1
+    27     25     28      1
+
+ [ dihedrals ]
+;  ai    aj    ak    al funct            c0            c1            c2            c3            c4            c5
+     1      2      5      6    9
+     1      2      5      7    9 0 0 0 0 0 0 ; HH31 CH3 C N HC CT C N (AAAA->AAAA)
+     3      2      5      6    9
+     3      2      5      7    9 0 0 0 0 0 0 ; HH32 CH3 C N HC CT C N (AAAA->AAAA)
+     4      2      5      6    9
+     4      2      5      7    9 0 0 0 0 0 0 ; HH33 CH3 C N HC CT C N (AAAA->AAAA)
+     2      5      7      8    9 180 10.46 2 180 0 2 ; CH3 C N H CT C N H (AAAA->AAAA)
+     2      5      7      9    9 180 10.46 2 180 0 2 ; CH3 C N CA CT C N CT (AAAA->AAAA)
+     6      5      7      8    9 180 10.46 2 180 0 2 ; O C N H O C N H (AAAA->AAAA)
+     6      5      7      9    9 180 10.46 2 180 0 2 ; O C N CA O C N CT (AAAA->AAAA)
+     5      7      9     10    9 0 0 0 0 0 0 ; C N CA HA C N CT H1 (AAAA->AAAA)
+     5      7      9     11    9 0 8.368 1 0 0 1 ; C N CA CB C N CT CT (AAAA->AAAA)
+     5      7      9     20    9 0 1.12968 2 0 0 2 ; C N CA C C N CT C (AAAA->AAAA)
+     8      7      9     10    9 0 0 0 0 0 0 ; H N CA HA H N CT H1 (AAAA->AAAA)
+     8      7      9     11    9 0 0 0 0 0 0 ; H N CA CB H N CT CT (AAAA->AAAA)
+     8      7      9     20    9 0 0 0 0 0 0 ; H N CA C H N CT C (AAAA->AAAA)
+     7      9     11     12    9 0 0.65084 3 0 0 3 ; N CA CB HB1 N CT CT HC (AAAA->AAAA)
+     7      9     11     13    9 0 0.65084 3 0 0 3 ; N CA CB HB2 N CT CT HC (AAAA->AAAA)
+     7      9     11     14    9 0 0.65084 3 0 0 3 ; N CA CB CG N CT CT CT (AAAA->AAAA)
+    10      9     11     12    9 0 0.65084 3 0 0 3 ; HA CA CB HB1 H1 CT CT HC (AAAA->AAAA)
+    10      9     11     13    9 0 0.65084 3 0 0 3 ; HA CA CB HB2 H1 CT CT HC (AAAA->AAAA)
+    10      9     11     14    9 0 0.65084 3 0 0 3 ; HA CA CB CG H1 CT CT CT (AAAA->AAAA)
+    20      9     11     12    9 0 0.65084 3 0 0 3 ; C CA CB HB1 C CT CT HC (AAAA->AAAA)
+    20      9     11     13    9 0 0.65084 3 0 0 3 ; C CA CB HB2 C CT CT HC (AAAA->AAAA)
+    20      9     11     14    9 0 0.65084 3 0 0 3 ; C CA CB CG C CT CT CT (AAAA->AAAA)
+     7      9     20     21    9 0 0 0 0 0 0 ; N CA C O N CT C O (AAAA->AAAA)
+     7      9     20     23    9 180 1.8828 1 180 0 1 ; N CA C N N CT C N (AAAA->AAAA)
+    10      9     20     21    9 0 3.3472 1 0 0 1 ; HA CA C O H1 CT C O (AAAA->AAAA)
+    10      9     20     23    9 0 0 0 0 0 0 ; HA CA C N H1 CT C N (AAAA->AAAA)
+    11      9     20     21    9 0 0 0 0 0 0 ; CB CA C O CT CT C O (AAAA->AAAA)
+    11      9     20     23    9 0 0.8368 1 0 0 1 ; CB CA C N CT CT C N (AAAA->AAAA)
+     9     11     14     15    9 0 0.66944 3 0 0 3 ; CA CB CG HG1 CT CT CT HC (AAAA->AAAA)
+     9     11     14     16    9 0 0.66944 3 0 0 3 ; CA CB CG HG2 CT CT CT HC (AAAA->AAAA)
+     9     11     14     17    9 0 0.65084 3 0 0 3 ; CA CB CG CD CT CT CT C (AAAA->AAAA)
+    12     11     14     15    9 0 0.6276 3 0 0 3 ; HB1 CB CG HG1 HC CT CT HC (AAAA->AAAA)
+    12     11     14     16    9 0 0.6276 3 0 0 3 ; HB1 CB CG HG2 HC CT CT HC (AAAA->AAAA)
+    12     11     14     17    9 0 0.65084 3 0 0 3 ; HB1 CB CG CD HC CT CT C (AAAA->AAAA)
+    13     11     14     15    9 0 0.6276 3 0 0 3 ; HB2 CB CG HG1 HC CT CT HC (AAAA->AAAA)
+    13     11     14     16    9 0 0.6276 3 0 0 3 ; HB2 CB CG HG2 HC CT CT HC (AAAA->AAAA)
+    13     11     14     17    9 0 0.65084 3 0 0 3 ; HB2 CB CG CD HC CT CT C (AAAA->AAAA)
+    11     14     17     18    9 0 0 0 0 0 0 ; CB CG CD OE1 CT CT C O2 (AAAA->AAAA)
+    11     14     17     19    9 0 0 0 0 0 0 ; CB CG CD OE2 CT CT C O2 (AAAA->AAAA)
+    15     14     17     18    9 0 0 0 0 0 0 ; HG1 CG CD OE1 HC CT C O2 (AAAA->AAAA)
+    15     14     17     19    9 0 0 0 0 0 0 ; HG1 CG CD OE2 HC CT C O2 (AAAA->AAAA)
+    16     14     17     18    9 0 0 0 0 0 0 ; HG2 CG CD OE1 HC CT C O2 (AAAA->AAAA)
+    16     14     17     19    9 0 0 0 0 0 0 ; HG2 CG CD OE2 HC CT C O2 (AAAA->AAAA)
+    14     17     19     22    9 180 9.6232 2 180 9.6232 2 ; CG CD OE2 DHE2 CT C O2 DUM_HO (AAAD->AAAA)
+    18     17     19     22    9 180 9.6232 2 180 9.6232 2 ; OE1 CD OE2 DHE2 O2 C O2 DUM_HO (AAAD->AAAA)
+     9     20     23     24    9 180 10.46 2 180 0 2 ; CA C N H CT C N H (AAAA->AAAA)
+     9     20     23     25    9 180 10.46 2 180 0 2 ; CA C N CH3 CT C N CT (AAAA->AAAA)
+    21     20     23     24    9 180 10.46 2 180 0 2 ; O C N H O C N H (AAAA->AAAA)
+    21     20     23     25    9 180 10.46 2 180 0 2 ; O C N CH3 O C N CT (AAAA->AAAA)
+    20     23     25     26    9 0 0 0 0 0 0 ; C N CH3 HH31 C N CT H1 (AAAA->AAAA)
+    20     23     25     27    9 0 0 0 0 0 0 ; C N CH3 HH32 C N CT H1 (AAAA->AAAA)
+    20     23     25     28    9 0 0 0 0 0 0 ; C N CH3 HH33 C N CT H1 (AAAA->AAAA)
+    24     23     25     26    9
+    24     23     25     27    9
+    24     23     25     28    9
+     2      7      5      6    4 180 43.932 2 180 0 2 ; CH3 N C O CT N C O (AAAA->AAAA)
+     5      9      7      8    4 180 4.6024 2 180 0 2 ; C CA N H C CT N H (AAAA->AAAA)
+     7      9     20     23    4 105.4 0.75 1 105.4 0 1 ; N CA C N N CT C N (AAAA->AAAA)
+     9     23     20     21    4 180 43.932 2 180 0 2 ; CA N C O CT N C O (AAAA->AAAA)
+    14     18     17     19    4 180 43.932 2 180 0 2 ; CG OE1 CD OE2 CT O2 C O2 (AAAA->AAAA)
+    20     25     23     24    4 180 4.6024 2 180 0 2 ; C CH3 N H C CT N H (AAAA->AAAA)
+     5      9      7      8    4 180 0 2 180 4.6024 2 ; C CA N H C CT N H (AAAA->AAAA)
+     9     23     20     21    4 180 0 2 180 43.932 2 ; CA N C O CT N C O (AAAA->AAAA)
+    14     18     17     19    4 180 0 2 180 43.932 2 ; CG OE1 CD OE2 CT O2 C O2 (AAAA->AAAA)
+     7      9     20     23    4 105.4 0 1 105.4 0.75 1 ; N CA C N N CT C N (AAAA->AAAA)
+     1      2      5      7    9 0 0 0 0 0 0 ; HH31 CH3 C N HC CT C N (AAAA->AAAA)
+     3      2      5      7    9 0 0 0 0 0 0 ; HH32 CH3 C N HC CT C N (AAAA->AAAA)
+     4      2      5      7    9 0 0 0 0 0 0 ; HH33 CH3 C N HC CT C N (AAAA->AAAA)
+     2      5      7      8    9 180 0 2 180 10.46 2 ; CH3 C N H CT C N H (AAAA->AAAA)
+     2      5      7      9    9 180 0 2 180 10.46 2 ; CH3 C N CA CT C N CT (AAAA->AAAA)
+     6      5      7      8    9 0 8.368 1 0 0 1 ; O C N H O C N H (AAAA->AAAA)
+     6      5      7      8    9 180 0 2 180 10.46 2 ; O C N H O C N H (AAAA->AAAA)
+     6      5      7      8    9 0 0 1 0 8.368 1 ; O C N H O C N H (AAAA->AAAA)
+     6      5      7      9    9 180 0 2 180 10.46 2 ; O C N CA O C N CT (AAAA->AAAA)
+     5      7      9     10    9 0 0 0 0 0 0 ; C N CA HA C N CT H1 (AAAA->AAAA)
+     5      7      9     11    9 0 8.368 2 0 0 2 ; C N CA CB C N CT CT (AAAA->AAAA)
+     5      7      9     11    9 0 1.6736 3 0 0 3 ; C N CA CB C N CT CT (AAAA->AAAA)
+     5      7      9     11    9 0 0 1 0 8.368 1 ; C N CA CB C N CT CT (AAAA->AAAA)
+     5      7      9     11    9 0 0 2 0 8.368 2 ; C N CA CB C N CT CT (AAAA->AAAA)
+     5      7      9     11    9 0 0 3 0 1.6736 3 ; C N CA CB C N CT CT (AAAA->AAAA)
+     5      7      9     20    9 0 1.75728 3 0 0 3 ; C N CA C C N CT C (AAAA->AAAA)
+     5      7      9     20    9 0 0 2 0 1.12968 2 ; C N CA C C N CT C (AAAA->AAAA)
+     5      7      9     20    9 0 0 3 0 1.75728 3 ; C N CA C C N CT C (AAAA->AAAA)
+     8      7      9     10    9 0 0 0 0 0 0 ; H N CA HA H N CT H1 (AAAA->AAAA)
+     8      7      9     11    9 0 0 0 0 0 0 ; H N CA CB H N CT CT (AAAA->AAAA)
+     8      7      9     20    9 0 0 0 0 0 0 ; H N CA C H N CT C (AAAA->AAAA)
+     7      9     11     12    9 0 0 3 0 0.65084 3 ; N CA CB HB1 N CT CT HC (AAAA->AAAA)
+     7      9     11     13    9 0 0 3 0 0.65084 3 ; N CA CB HB2 N CT CT HC (AAAA->AAAA)
+     7      9     11     14    9 0 0 3 0 0.65084 3 ; N CA CB CG N CT CT CT (AAAA->AAAA)
+    10      9     11     12    9 0 0 3 0 0.65084 3 ; HA CA CB HB1 H1 CT CT HC (AAAA->AAAA)
+    10      9     11     13    9 0 0 3 0 0.65084 3 ; HA CA CB HB2 H1 CT CT HC (AAAA->AAAA)
+    10      9     11     14    9 0 0 3 0 0.65084 3 ; HA CA CB CG H1 CT CT CT (AAAA->AAAA)
+    20      9     11     12    9 0 0 3 0 0.65084 3 ; C CA CB HB1 C CT CT HC (AAAA->AAAA)
+    20      9     11     13    9 0 0 3 0 0.65084 3 ; C CA CB HB2 C CT CT HC (AAAA->AAAA)
+    20      9     11     14    9 0 0 3 0 0.65084 3 ; C CA CB CG C CT CT CT (AAAA->AAAA)
+     7      9     20     21    9 0 0 0 0 0 0 ; N CA C O N CT C O (AAAA->AAAA)
+     7      9     20     23    9 180 6.61072 2 180 0 2 ; N CA C N N CT C N (AAAA->AAAA)
+     7      9     20     23    9 180 2.3012 3 180 0 3 ; N CA C N N CT C N (AAAA->AAAA)
+     7      9     20     23    9 180 0 1 180 1.8828 1 ; N CA C N N CT C N (AAAA->AAAA)
+     7      9     20     23    9 180 0 2 180 6.61072 2 ; N CA C N N CT C N (AAAA->AAAA)
+     7      9     20     23    9 180 0 3 180 2.3012 3 ; N CA C N N CT C N (AAAA->AAAA)
+    10      9     20     21    9 180 0.33472 3 180 0 3 ; HA CA C O H1 CT C O (AAAA->AAAA)
+    10      9     20     21    9 0 0 1 0 3.3472 1 ; HA CA C O H1 CT C O (AAAA->AAAA)
+    10      9     20     21    9 180 0 3 180 0.33472 3 ; HA CA C O H1 CT C O (AAAA->AAAA)
+    10      9     20     23    9 0 0 0 0 0 0 ; HA CA C N H1 CT C N (AAAA->AAAA)
+    11      9     20     21    9 0 0 0 0 0 0 ; CB CA C O CT CT C O (AAAA->AAAA)
+    11      9     20     23    9 0 0.8368 2 0 0 2 ; CB CA C N CT CT C N (AAAA->AAAA)
+    11      9     20     23    9 0 1.6736 3 0 0 3 ; CB CA C N CT CT C N (AAAA->AAAA)
+    11      9     20     23    9 0 0 1 0 0.8368 1 ; CB CA C N CT CT C N (AAAA->AAAA)
+    11      9     20     23    9 0 0 2 0 0.8368 2 ; CB CA C N CT CT C N (AAAA->AAAA)
+    11      9     20     23    9 0 0 3 0 1.6736 3 ; CB CA C N CT CT C N (AAAA->AAAA)
+     9     11     14     15    9 0 0 3 0 0.66944 3 ; CA CB CG HG1 CT CT CT HC (AAAA->AAAA)
+     9     11     14     16    9 0 0 3 0 0.66944 3 ; CA CB CG HG2 CT CT CT HC (AAAA->AAAA)
+     9     11     14     17    9 0 0 3 0 0.65084 3 ; CA CB CG CD CT CT CT C (AAAA->AAAA)
+    12     11     14     15    9 0 0 3 0 0.6276 3 ; HB1 CB CG HG1 HC CT CT HC (AAAA->AAAA)
+    12     11     14     16    9 0 0 3 0 0.6276 3 ; HB1 CB CG HG2 HC CT CT HC (AAAA->AAAA)
+    12     11     14     17    9 0 0 3 0 0.65084 3 ; HB1 CB CG CD HC CT CT C (AAAA->AAAA)
+    13     11     14     15    9 0 0 3 0 0.6276 3 ; HB2 CB CG HG1 HC CT CT HC (AAAA->AAAA)
+    13     11     14     16    9 0 0 3 0 0.6276 3 ; HB2 CB CG HG2 HC CT CT HC (AAAA->AAAA)
+    13     11     14     17    9 0 0 3 0 0.65084 3 ; HB2 CB CG CD HC CT CT C (AAAA->AAAA)
+    11     14     17     18    9 0 0 0 0 0 0 ; CB CG CD OE1 CT CT C O2 (AAAA->AAAA)
+    11     14     17     19    9 0 0 0 0 0 0 ; CB CG CD OE2 CT CT C O2 (AAAA->AAAA)
+    15     14     17     18    9 0 0 1 0 3.3472 1 ; HG1 CG CD OE1 HC CT C O2 (AAAA->AAAA)
+    15     14     17     18    9 180 0 3 180 0.33472 3 ; HG1 CG CD OE1 HC CT C O2 (AAAA->AAAA)
+    15     14     17     19    9 0 0 0 0 0 0 ; HG1 CG CD OE2 HC CT C O2 (AAAA->AAAA)
+    16     14     17     18    9 0 0 1 0 3.3472 1 ; HG2 CG CD OE1 HC CT C O2 (AAAA->AAAA)
+    16     14     17     18    9 180 0 3 180 0.33472 3 ; HG2 CG CD OE1 HC CT C O2 (AAAA->AAAA)
+    16     14     17     19    9 0 0 0 0 0 0 ; HG2 CG CD OE2 HC CT C O2 (AAAA->AAAA)
+    18     17     19     22    9 0 7.9496 1 0 7.9496 1 ; OE1 CD OE2 DHE2 O2 C O2 DUM_HO (AAAD->AAAA)
+     9     20     23     24    9 180 0 2 180 10.46 2 ; CA C N H CT C N H (AAAA->AAAA)
+     9     20     23     25    9 180 0 2 180 10.46 2 ; CA C N CH3 CT C N CT (AAAA->AAAA)
+    21     20     23     24    9 0 8.368 1 0 0 1 ; O C N H O C N H (AAAA->AAAA)
+    21     20     23     24    9 180 0 2 180 10.46 2 ; O C N H O C N H (AAAA->AAAA)
+    21     20     23     24    9 0 0 1 0 8.368 1 ; O C N H O C N H (AAAA->AAAA)
+    21     20     23     25    9 180 0 2 180 10.46 2 ; O C N CH3 O C N CT (AAAA->AAAA)
+    20     23     25     26    9 0 0 0 0 0 0 ; C N CH3 HH31 C N CT H1 (AAAA->AAAA)
+    20     23     25     27    9 0 0 0 0 0 0 ; C N CH3 HH32 C N CT H1 (AAAA->AAAA)
+    20     23     25     28    9 0 0 0 0 0 0 ; C N CH3 HH33 C N CT H1 (AAAA->AAAA)
+     2      7      5      6    4 180 0 2 180 43.932 2 ; CH3 N C O CT N C O (AAAA->AAAA)
+    20     25     23     24    4 180 0 2 180 4.6024 2 ; C CH3 N H C CT N H (AAAA->AAAA)

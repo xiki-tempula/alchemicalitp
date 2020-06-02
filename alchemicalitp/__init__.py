@@ -4,7 +4,7 @@ The Gromacs itp file parser and writer for multi-step alchemical transformation.
 """
 
 # Add imports here
-from .alchemicalitp import *
+from .top import Topology
 
 # Handle versioneer
 from ._version import get_versions

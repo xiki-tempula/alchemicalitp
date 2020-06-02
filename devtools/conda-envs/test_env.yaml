@@ -4,6 +4,7 @@ dependencies:
     # Base depends
   - python
   - pip
+  - numpy
 
     # Testing
   - pytest
@@ -13,4 +14,3 @@ dependencies:
     # Pip-only installs
   #- pip:
   #  - codecov
-

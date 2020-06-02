@@ -1,8 +1,8 @@
 AlchemicalITP
 ==============================
 [//]: # (Badges)
-[![Travis Build Status](https://travis-ci.com/REPLACE_WITH_OWNER_ACCOUNT/AlchemicalITP.svg?branch=master)](https://travis-ci.com/REPLACE_WITH_OWNER_ACCOUNT/AlchemicalITP)
-[![codecov](https://codecov.io/gh/REPLACE_WITH_OWNER_ACCOUNT/AlchemicalITP/branch/master/graph/badge.svg)](https://codecov.io/gh/REPLACE_WITH_OWNER_ACCOUNT/AlchemicalITP/branch/master)
+[![Travis Build Status](https://travis-ci.com/REPLACE_WITH_OWNER_ACCOUNT/AlchemicalITP.svg?branch=master)](https://travis-ci.com/xiki-tempula/AlchemicalITP)
+[![codecov](https://codecov.io/gh/REPLACE_WITH_OWNER_ACCOUNT/AlchemicalITP/branch/master/graph/badge.svg)](https://codecov.io/gh/xiki-tempula/AlchemicalITP/branch/master)
 
 
 The Gromacs itp file parser and writer for multi-step alchemical transformation.
