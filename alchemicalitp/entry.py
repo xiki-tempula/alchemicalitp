@@ -12,6 +12,10 @@ class EntryBase():
         pass
     def intermediate_coul(self, lam):
         pass
+
+    def to_stateB(self):
+        pass
+
 class Comment(EntryBase):
     def __init__(self, comment):
         self.comment = comment
@@ -108,6 +112,17 @@ class Atom(EntryBase):
         if self.massB == '':
             self.massB = self.mass
         self.chargeB = 0
+
+    def to_stateB(self):
+        if self.typeB != '':
+            self.type = self.typeB
+            self.typeB = ''
+        if self.massB != '':
+            self.mass = self.massB
+            self.massB = ''
+        if self.chargeB != '':
+            self.charge = self.chargeB
+            self.chargeB = ''
 
     def intermediate_coul(self, lam):
         if self.typeB != '':
@@ -263,6 +278,14 @@ class Bond(Pair):
             dummy.kb = '0.0'
         return dummy
 
+    def to_stateB(self):
+        if self.b0B != '':
+            self.b0 = self.b0B
+            self.b0B = ''
+        if self.kbB != '':
+            self.kb = self.kbB
+            self.kbB = ''
+
 
 class Angle(EntryBase):
     def __init__(self, i, j, k, func, comment='', **kwargs):
@@ -361,6 +384,14 @@ class Angle(EntryBase):
         if dummy.func == 1:
             dummy.cth = '0.0'
         return dummy
+
+    def to_stateB(self):
+        if self.th0B != '':
+            self.th0 = self.th0B
+            self.th0B = ''
+        if self.cthB != '':
+            self.cth = self.cthB
+            self.cthB = ''
 
 class Dihedral(EntryBase):
     def __init__(self, i, j, k, l, func, comment='', **kwargs):
@@ -531,3 +562,21 @@ class Dihedral(EntryBase):
         if dummy.func in [1, 4, 9]:
             dummy.kd = '0.0'
         return dummy
+
+    def to_stateB(self):
+        if self.func in [1, 4, 9]:
+            if self.phaseB != '':
+                self.phase = self.phaseB
+                self.phaseB = ''
+            if self.pnB != '':
+                self.pn = self.pnB
+                self.pnB = ''
+            if self.kdB != '':
+                self.kd = self.kdB
+                self.kdB = ''
+        else:
+            if self.C0B != '':
+                self.C0, self.C1, self.C2, self.C3, self.C4, self.C5 = self.C0B, self.C1B, self.C2B, self.C3B, self.C4B, self.C5B
+                self.C0B, self.C1B, self.C2B, self.C3B, self.C4B, self.C5B = [0, ] * 6
+
+

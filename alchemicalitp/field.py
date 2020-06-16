@@ -89,6 +89,10 @@ class Field():
                 new_content.append(entry)
         self.content = new_content
 
+    def to_stateB(self):
+        for entry in self.content:
+            entry.to_stateB()
+
 class Default(Field):
     def __init__(self,):
         self.comments = []

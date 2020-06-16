@@ -33,6 +33,15 @@ class Topology():
             atom.add_coul0()
         return new_top
 
+    def to_stateB(self):
+        new_top = copy.deepcopy(self)
+        new_top.content_dict['atoms'].to_stateB()
+        new_top.content_dict['bonds'].to_stateB()
+        new_top.content_dict['pairs'].to_stateB()
+        new_top.content_dict['angles'].to_stateB()
+        new_top.content_dict['dihedrals'].to_stateB()
+        return new_top
+
     def write(self, filename=None, format = 'itp'):
         if format == 'itp':
             if filename is None:
