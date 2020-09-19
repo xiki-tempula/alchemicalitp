@@ -5,12 +5,12 @@ Unit and regression test for the alchemicalitp package.
 # Import package, test suite, and other packages as needed
 import alchemicalitp
 import pytest
-import sys
 import os
+from pkg_resources import resource_filename
 
 @pytest.fixture
 def urea():
-    return alchemicalitp.top.Topology(filename=os.path.join(os.path.dirname(__file__), 'urea.itp'))
+    return alchemicalitp.top.Topology(filename=resource_filename(__name__, 'urea.itp'))
 
 def test_defaults(urea):
     topology = urea
