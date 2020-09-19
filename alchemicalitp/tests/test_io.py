@@ -125,7 +125,7 @@ def test_writeitp(urea):
 def test_writetop(urea):
     topology = urea
     topology.write(resource_filename(__name__, 'test.top'), format = 'top')
-    test_result = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'test.top')
+    test_result = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'test.top'))
     assert topology.content_dict['defaults'] == test_result.content_dict['defaults']
     assert topology.content_dict['atomtypes'] == test_result.content_dict['atomtypes']
     os.remove(resource_filename(__name__, 'test.top'))
