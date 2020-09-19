@@ -57,6 +57,8 @@ class Topology():
             writer = itpWriter(self)
             with open(filename, 'w') as f:
                 writer.write_top(f)
+        else:
+            raise NameError('File extension {} not recognised'.format(format))
 
     def return_intermediate(self, coul, vdw, bonded, restraint, mass):
         new_top = copy.deepcopy(self)
