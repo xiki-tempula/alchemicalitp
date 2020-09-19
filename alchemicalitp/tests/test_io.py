@@ -7,6 +7,7 @@ import alchemicalitp
 import pytest
 import os
 from pkg_resources import resource_filename
+from tempfile import NamedTemporaryFile
 
 @pytest.fixture
 def urea():
@@ -101,29 +102,30 @@ def test_dihedrals(urea):
 
 def test_write(urea):
     topology = urea
-    topology.write('test.itp')
-    test_result = alchemicalitp.top.Topology(filename='test.itp')
+    topology.write(resource_filename(__name__, 'test.itp'))
+    test_result = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'test.itp'))
     assert topology.content_dict['atoms'] == test_result.content_dict['atoms']
     assert topology.content_dict['bonds'] == test_result.content_dict['bonds']
     assert topology.content_dict['pairs'] == test_result.content_dict['pairs']
     assert topology.content_dict['angles'] == test_result.content_dict['angles']
     assert topology.content_dict['dihedrals'] == test_result.content_dict['dihedrals']
+    os.remove(resource_filename(__name__, 'test.itp'))
 
 def test_writeitp(urea):
     topology = urea
-    topology.write('test.itp', format = 'itp')
-    test_result = alchemicalitp.top.Topology(filename='test.itp')
+    topology.write(resource_filename(__name__, 'test.itp'), format = 'itp')
+    test_result = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'test.itp'))
     assert topology.content_dict['atoms'] == test_result.content_dict['atoms']
     assert topology.content_dict['bonds'] == test_result.content_dict['bonds']
     assert topology.content_dict['pairs'] == test_result.content_dict['pairs']
     assert topology.content_dict['angles'] == test_result.content_dict['angles']
     assert topology.content_dict['dihedrals'] == test_result.content_dict['dihedrals']
-    os.remove('test.itp')
+    os.remove(resource_filename(__name__, 'test.itp'))
 
-def test_writeitp(urea):
+def test_writetop(urea):
     topology = urea
-    topology.write('test.top', format = 'top')
+    topology.write(resource_filename(__name__, 'test.top'), format = 'top')
     test_result = alchemicalitp.top.Topology(filename='test.top')
     assert topology.content_dict['defaults'] == test_result.content_dict['defaults']
     assert topology.content_dict['atomtypes'] == test_result.content_dict['atomtypes']
-    os.remove('test.top')
+    os.remove(resource_filename(__name__, 'test.top'))

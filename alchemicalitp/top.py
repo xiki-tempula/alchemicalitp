@@ -44,14 +44,14 @@ class Topology():
 
     def write(self, filename=None, format = None):
         if format is None:
-            format = os.path.splitext(filename)[-1]
-        if format == '.itp':
+            format = os.path.splitext(filename)[-1][1:]
+        if format == 'itp':
             if filename is None:
                 filename = self.name + '.itp'
             writer = itpWriter(self)
             with open(filename, 'w') as f:
                 writer.write_itp(f)
-        elif format == '.top':
+        elif format == 'top':
             if filename is None:
                 filename = self.name + '.top'
             writer = itpWriter(self)
