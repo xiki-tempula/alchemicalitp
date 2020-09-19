@@ -1,0 +1,521 @@
+[ moleculetype ]
+; Name        nrexcl
+Protein  3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+     1          HC      1    ACE   HH31      1   0.112300     1.0080
+     2          CT      1    ACE    CH3      2  -0.366200    12.0100
+     3          HC      1    ACE   HH32      3   0.112300     1.0080
+     4          HC      1    ACE   HH33      4   0.112300     1.0080
+     5           C      1    ACE      C      5   0.597200    12.0100
+     6           O      1    ACE      O      6  -0.567900    16.0000
+     7           N      2    V2Y      N      7  -0.415700    14.0100
+     8           H      2    V2Y      H      8   0.271900     1.0080
+     9          CX      2    V2Y     CA      9  -0.087500    12.0100          CX  -0.001400    12.0100
+    10          H1      2    V2Y     HA     10   0.096900     1.0080          H1   0.087600     1.0080
+    11          3C      2    V2Y     CB     11   0.298500    12.0100          CT  -0.015200    12.0100
+    12          HC      2    V2Y     HB     12  -0.029700     1.0080      DUM_HC   0.000000     1.0080
+    13          CT      2    V2Y    CG1     13  -0.319200    12.0100      DUM_CT   0.000000    12.0100
+    14          HC      2    V2Y   HG11     14   0.079100     1.0080      DUM_HC   0.000000     1.0080
+    15          HC      2    V2Y   HG12     15   0.079100     1.0080      DUM_HC   0.000000     1.0080
+    16          HC      2    V2Y   HG13     16   0.079100     1.0080      DUM_HC   0.000000     1.0080
+    17          CT      2    V2Y    CG2     17  -0.319200    12.0100      DUM_CT   0.000000    12.0100
+    18          HC      2    V2Y   HG21     18   0.079100     1.0080      DUM_HC   0.000000     1.0080
+    19          HC      2    V2Y   HG22     19   0.079100     1.0080      DUM_HC   0.000000     1.0080
+    20          HC      2    V2Y   HG23     20   0.079100     1.0080      DUM_HC   0.000000     1.0080
+    21           C      2    V2Y      C     21   0.597300    12.0100
+    22           O      2    V2Y      O     22  -0.567900    16.0000
+    23      DUM_HC      2    V2Y    HV1     23   0.000000     1.0080          HC   0.029500     1.0080
+    24      DUM_HC      2    V2Y    HV2     24   0.000000     1.0080          HC   0.029500     1.0080
+    25      DUM_CA      2    V2Y    DCG     25   0.000000    12.0100          CA  -0.001100    12.0100
+    26      DUM_CA      2    V2Y   DCD1     26   0.000000    12.0100          CA  -0.190600    12.0100
+    27      DUM_HA      2    V2Y    HV3     27   0.000000     1.0080          HA   0.169900     1.0080
+    28      DUM_CA      2    V2Y   DCD2     28   0.000000    12.0100          CA  -0.190600    12.0100
+    29      DUM_HA      2    V2Y    HV4     29   0.000000     1.0080          HA   0.169900     1.0080
+    30      DUM_CA      2    V2Y   DCE1     30   0.000000    12.0100          CA  -0.234100    12.0100
+    31      DUM_HA      2    V2Y    HV5     31   0.000000     1.0080          HA   0.165600     1.0080
+    32      DUM_CA      2    V2Y   DCE2     32   0.000000    12.0100          CA  -0.234100    12.0100
+    33      DUM_HA      2    V2Y    HV6     33   0.000000     1.0080          HA   0.165600     1.0080
+    34       DUM_C      2    V2Y    DCZ     34   0.000000    12.0100           C   0.322600    12.0100
+    35      DUM_OH      2    V2Y    DOH     35   0.000000    16.0000          OH  -0.557900    16.0000
+    36      DUM_HO      2    V2Y    HV7     36   0.000000     1.0080          HO   0.399200     1.0080
+    37           N      3    NME      N     37  -0.415700    14.0100
+    38           H      3    NME      H     38   0.271900     1.0080
+    39          CT      3    NME    CH3     39  -0.149000    12.0100
+    40          H1      3    NME   HH31     40   0.097600     1.0080
+    41          H1      3    NME   HH32     41   0.097600     1.0080
+    42          H1      3    NME   HH33     42   0.097600     1.0080
+
+[ bonds ]
+;  ai    aj funct            c0            c1            c2            c3
+     1      2      1
+     2      3      1
+     2      4      1
+     2      5      1
+     5      6      1
+     5      7      1       0.133500  410032.000000       0.133500  410032.000000
+     7      8      1       0.101000  363171.200000       0.101000  363171.200000
+     7      9      1       0.144900  282001.600000       0.144900  282001.600000
+     9     10      1       0.109000  284512.000000       0.109000  284512.000000
+     9     11      1       0.152600  259408.000000       0.152600  259408.000000
+     9     21      1       0.152200  265265.600000       0.152200  265265.600000
+    11     12      1       0.109000  284512.000000       0.109000  284512.000000
+    11     13      1       0.152600  259408.000000       0.152600  259408.000000
+    11     17      1       0.152600  259408.000000       0.152600  259408.000000
+    11     23      1       0.109000  284512.000000       0.109000  284512.000000
+    11     24      1       0.109000  284512.000000       0.109000  284512.000000
+    11     25      1       0.151000  265265.600000       0.151000  265265.600000
+    13     14      1       0.109000  284512.000000       0.109000  284512.000000
+    13     15      1       0.109000  284512.000000       0.109000  284512.000000
+    13     16      1       0.109000  284512.000000       0.109000  284512.000000
+    17     18      1       0.109000  284512.000000       0.109000  284512.000000
+    17     19      1       0.109000  284512.000000       0.109000  284512.000000
+    17     20      1       0.109000  284512.000000       0.109000  284512.000000
+    21     22      1       0.122900  476976.000000       0.122900  476976.000000
+    21     37      1       0.133500  410032.000000       0.133500  410032.000000
+    25     26      1       0.140000  392459.200000       0.140000  392459.200000
+    25     28      1       0.140000  392459.200000       0.140000  392459.200000
+    26     27      1       0.108000  307105.600000       0.108000  307105.600000
+    26     30      1       0.140000  392459.200000       0.140000  392459.200000
+    28     29      1       0.108000  307105.600000       0.108000  307105.600000
+    28     32      1       0.140000  392459.200000       0.140000  392459.200000
+    30     31      1       0.108000  307105.600000       0.108000  307105.600000
+    30     34      1       0.140900  392459.200000       0.140900  392459.200000
+    32     33      1       0.108000  307105.600000       0.108000  307105.600000
+    32     34      1       0.140900  392459.200000       0.140900  392459.200000
+    34     35      1       0.136400  376560.000000       0.136400  376560.000000
+    35     36      1       0.096000  462750.400000       0.096000  462750.400000
+    37     38      1
+    37     39      1
+    39     40      1
+    39     41      1
+    39     42      1
+
+[ pairs ]
+;  ai    aj funct            c0            c1            c2            c3
+     1      6      1
+     1      7      1
+     2      8      1
+     2      9      1
+     3      6      1
+     3      7      1
+     4      6      1
+     4      7      1
+     5     10      1
+     5     11      1
+     5     21      1
+     6      8      1
+     6      9      1
+     7     12      1
+     7     13      1
+     7     17      1
+     7     22      1
+     7     23      1
+     7     24      1
+     7     25      1
+     7     37      1
+     8     10      1
+     8     11      1
+     8     21      1
+     9     14      1
+     9     15      1
+     9     16      1
+     9     18      1
+     9     19      1
+     9     20      1
+     9     26      1
+     9     28      1
+     9     38      1
+     9     39      1
+    10     12      1
+    10     13      1
+    10     17      1
+    10     22      1
+    10     23      1
+    10     24      1
+    10     25      1
+    10     37      1
+    11     22      1
+    11     27      1
+    11     29      1
+    11     30      1
+    11     32      1
+    11     37      1
+    12     14      1
+    12     15      1
+    12     16      1
+    12     18      1
+    12     19      1
+    12     20      1
+    12     21      1
+    12     26      1
+    12     28      1
+    13     18      1
+    13     19      1
+    13     20      1
+    13     21      1
+    13     26      1
+    13     28      1
+    14     17      1
+    14     23      1
+    14     24      1
+    14     25      1
+    15     17      1
+    15     23      1
+    15     24      1
+    15     25      1
+    16     17      1
+    16     23      1
+    16     24      1
+    16     25      1
+    17     21      1
+    17     26      1
+    17     28      1
+    18     23      1
+    18     24      1
+    18     25      1
+    19     23      1
+    19     24      1
+    19     25      1
+    20     23      1
+    20     24      1
+    20     25      1
+    21     23      1
+    21     24      1
+    21     25      1
+    21     40      1
+    21     41      1
+    21     42      1
+    22     38      1
+    22     39      1
+    23     26      1
+    23     28      1
+    24     26      1
+    24     28      1
+    25     31      1
+    25     33      1
+    25     34      1
+    26     29      1
+    26     32      1
+    26     35      1
+    27     28      1
+    27     31      1
+    27     34      1
+    28     30      1
+    28     35      1
+    29     33      1
+    29     34      1
+    30     33      1
+    30     36      1
+    31     32      1
+    31     35      1
+    32     36      1
+    33     35      1
+    38     40      1
+    38     41      1
+    38     42      1
+
+[ angles ]
+;  ai    aj    ak funct            c0            c1            c2            c3
+     1      2      3      1
+     1      2      4      1
+     1      2      5      1
+     3      2      4      1
+     3      2      5      1
+     4      2      5      1
+     2      5      6      1
+     2      5      7      1     116.600000     585.760000     116.600000     585.760000 ; CH3 C N
+     6      5      7      1     122.900000     669.440000     122.900000     669.440000 ; O C N
+     5      7      8      1     120.000000     418.400000     120.000000     418.400000 ; C N H
+     5      7      9      1     121.900000     418.400000     121.900000     418.400000 ; C N CA
+     8      7      9      1     118.040000     418.400000     118.040000     418.400000 ; H N CA
+     7      9     10      1     109.500000     418.400000     109.500000     418.400000 ; N CA HA
+     7      9     11      1     109.700000     669.440000     109.700000     669.440000 ; N CA CB
+     7      9     21      1     110.100000     527.184000     110.100000     527.184000 ; N CA C
+    10      9     11      1     109.500000     418.400000     109.500000     418.400000 ; HA CA CB
+    10      9     21      1     109.500000     418.400000     109.500000     418.400000 ; HA CA C
+    11      9     21      1     111.100000     527.184000     111.100000     527.184000 ; CB CA C
+     9     11     12      1     109.500000     418.400000     109.500000     418.400000 ; CA CB HB
+     9     11     13      1     109.500000     334.720000     109.500000     334.720000 ; CA CB CG1
+     9     11     17      1     109.500000     334.720000     109.500000     334.720000 ; CA CB CG2
+     9     11     23      1     109.500000     418.400000     109.500000     418.400000 ; CA CB HV1
+     9     11     24      1     109.500000     418.400000     109.500000     418.400000 ; CA CB HV2
+     9     11     25      1     114.000000     527.184000     114.000000     527.184000 ; CA CB DCG
+    12     11     13      1     109.500000     418.400000     109.500000     418.400000 ; HB CB CG1
+    12     11     17      1     109.500000     418.400000     109.500000     418.400000 ; HB CB CG2
+    12     11     23      1       0.000000       0.000000       0.000000       0.000000 ; HB CB HV1
+    12     11     24      1       0.000000       0.000000       0.000000       0.000000 ; HB CB HV2
+    12     11     25      1       0.000000       0.000000       0.000000       0.000000 ; HB CB DCG
+    13     11     17      1     109.500000     334.720000     109.500000     334.720000 ; CG1 CB CG2
+    13     11     23      1       0.000000       0.000000       0.000000       0.000000 ; CG1 CB HV1
+    13     11     24      1       0.000000       0.000000       0.000000       0.000000 ; CG1 CB HV2
+    13     11     25      1       0.000000       0.000000       0.000000       0.000000 ; CG1 CB DCG
+    17     11     23      1       0.000000       0.000000       0.000000       0.000000 ; CG2 CB HV1
+    17     11     24      1       0.000000       0.000000       0.000000       0.000000 ; CG2 CB HV2
+    17     11     25      1       0.000000       0.000000       0.000000       0.000000 ; CG2 CB DCG
+    23     11     24      1     109.500000     292.880000     109.500000     292.880000 ; HV1 CB HV2
+    23     11     25      1     109.500000     418.400000     109.500000     418.400000 ; HV1 CB DCG
+    24     11     25      1     109.500000     418.400000     109.500000     418.400000 ; HV2 CB DCG
+    11     13     14      1     109.500000     418.400000     109.500000     418.400000 ; CB CG1 HG11
+    11     13     15      1     109.500000     418.400000     109.500000     418.400000 ; CB CG1 HG12
+    11     13     16      1     109.500000     418.400000     109.500000     418.400000 ; CB CG1 HG13
+    14     13     15      1     109.500000     292.880000     109.500000     292.880000 ; HG11 CG1 HG12
+    14     13     16      1     109.500000     292.880000     109.500000     292.880000 ; HG11 CG1 HG13
+    15     13     16      1     109.500000     292.880000     109.500000     292.880000 ; HG12 CG1 HG13
+    11     17     18      1     109.500000     418.400000     109.500000     418.400000 ; CB CG2 HG21
+    11     17     19      1     109.500000     418.400000     109.500000     418.400000 ; CB CG2 HG22
+    11     17     20      1     109.500000     418.400000     109.500000     418.400000 ; CB CG2 HG23
+    18     17     19      1     109.500000     292.880000     109.500000     292.880000 ; HG21 CG2 HG22
+    18     17     20      1     109.500000     292.880000     109.500000     292.880000 ; HG21 CG2 HG23
+    19     17     20      1     109.500000     292.880000     109.500000     292.880000 ; HG22 CG2 HG23
+     9     21     22      1     120.400000     669.440000     120.400000     669.440000 ; CA C O
+     9     21     37      1     116.600000     585.760000     116.600000     585.760000 ; CA C N
+    22     21     37      1     122.900000     669.440000     122.900000     669.440000 ; O C N
+    11     25     26      1     120.000000     585.760000     120.000000     585.760000 ; CB DCG DCD1
+    11     25     28      1     120.000000     585.760000     120.000000     585.760000 ; CB DCG DCD2
+    26     25     28      1     120.000000     527.184000     120.000000     527.184000 ; DCD1 DCG DCD2
+    25     26     27      1     120.000000     418.400000     120.000000     418.400000 ; DCG DCD1 HV3
+    25     26     30      1     120.000000     527.184000     120.000000     527.184000 ; DCG DCD1 DCE1
+    27     26     30      1     120.000000     418.400000     120.000000     418.400000 ; HV3 DCD1 DCE1
+    25     28     29      1     120.000000     418.400000     120.000000     418.400000 ; DCG DCD2 HV4
+    25     28     32      1     120.000000     527.184000     120.000000     527.184000 ; DCG DCD2 DCE2
+    29     28     32      1     120.000000     418.400000     120.000000     418.400000 ; HV4 DCD2 DCE2
+    26     30     31      1     120.000000     418.400000     120.000000     418.400000 ; DCD1 DCE1 HV5
+    26     30     34      1     120.000000     527.184000     120.000000     527.184000 ; DCD1 DCE1 DCZ
+    31     30     34      1     120.000000     418.400000     120.000000     418.400000 ; HV5 DCE1 DCZ
+    28     32     33      1     120.000000     418.400000     120.000000     418.400000 ; DCD2 DCE2 HV6
+    28     32     34      1     120.000000     527.184000     120.000000     527.184000 ; DCD2 DCE2 DCZ
+    33     32     34      1     120.000000     418.400000     120.000000     418.400000 ; HV6 DCE2 DCZ
+    30     34     32      1     120.000000     527.184000     120.000000     527.184000 ; DCE1 DCZ DCE2
+    30     34     35      1     120.000000     585.760000     120.000000     585.760000 ; DCE1 DCZ DOH
+    32     34     35      1     120.000000     585.760000     120.000000     585.760000 ; DCE2 DCZ DOH
+    34     35     36      1     113.000000     418.400000     113.000000     418.400000 ; DCZ DOH HV7
+    21     37     38      1     120.000000     418.400000     120.000000     418.400000 ; C N H
+    21     37     39      1     121.900000     418.400000     121.900000     418.400000 ; C N CH3
+    38     37     39      1
+    37     39     40      1
+    37     39     41      1
+    37     39     42      1
+    40     39     41      1
+    40     39     42      1
+    41     39     42      1
+
+[ dihedrals ]
+;  ai    aj    ak    al funct            c0            c1            c2            c3            c4            c5
+     1      2      5      6    9
+     1      2      5      7    9
+     3      2      5      6    9
+     3      2      5      7    9
+     4      2      5      6    9
+     4      2      5      7    9
+     2      5      7      8    9
+     2      5      7      9    9 180 10.46 2 180 0 2 ; CH3 C N CA CT C N CX (AAAA->AAAA)
+     6      5      7      8    9
+     6      5      7      9    9 180 10.46 2 180 0 2 ; O C N CA O C N CX (AAAA->AAAA)
+     5      7      9     10    9 0 0 2 0 0 2 ; C N CA HA C N CX H1 (AAAA->AAAA)
+     5      7      9     11    9 0 0 4 0 0 4 ; C N CA CB C N CX 3C (AAAA->AAAA)
+     5      7      9     21    9 0 0 4 0 0 4 ; C N CA C C N CX C (AAAA->AAAA)
+     8      7      9     10    9 0 0 2 0 0 2 ; H N CA HA H N CX H1 (AAAA->AAAA)
+     8      7      9     11    9 0 0 2 0 0 2 ; H N CA CB H N CX 3C (AAAA->AAAA)
+     8      7      9     21    9 0 0 2 0 0 2 ; H N CA C H N CX C (AAAA->AAAA)
+     7      9     11     12    9 0 0.65084 3 0 0.65084 3 ; N CA CB HB N CX 3C HC (AAAA->AAAD)
+     7      9     11     13    9 180 0.00418 4 180 0.00418 4 ; N CA CB CG1 N CX 3C CT (AAAA->AAAD)
+     7      9     11     17    9 180 0.00418 4 180 0.00418 4 ; N CA CB CG2 N CX 3C CT (AAAA->AAAD)
+     7      9     11     23    9 0 0.65084 3 0 0.65084 3 ; N CA CB HV1 N CX 3C DUM_HC (AAAD->AAAA)
+     7      9     11     24    9 0 0.65084 3 0 0.65084 3 ; N CA CB HV2 N CX 3C DUM_HC (AAAD->AAAA)
+     7      9     11     25    9 180 0.02929 4 180 0.02929 4 ; N CA CB DCG N CX 3C DUM_CA (AAAD->AAAA)
+    10      9     11     12    9 0 0.65084 3 0 0.65084 3 ; HA CA CB HB H1 CX 3C HC (AAAA->AAAD)
+    10      9     11     13    9 0 0.65084 3 0 0.65084 3 ; HA CA CB CG1 H1 CX 3C CT (AAAA->AAAD)
+    10      9     11     17    9 0 0.65084 3 0 0.65084 3 ; HA CA CB CG2 H1 CX 3C CT (AAAA->AAAD)
+    10      9     11     23    9 0 0.65084 3 0 0.65084 3 ; HA CA CB HV1 H1 CX 3C DUM_HC (AAAD->AAAA)
+    10      9     11     24    9 0 0.65084 3 0 0.65084 3 ; HA CA CB HV2 H1 CX 3C DUM_HC (AAAD->AAAA)
+    10      9     11     25    9 0 0.65084 3 0 0.65084 3 ; HA CA CB DCG H1 CX 3C DUM_CA (AAAD->AAAA)
+    21      9     11     12    9 0 0.65084 3 0 0.65084 3 ; C CA CB HB C CX 3C HC (AAAA->AAAD)
+    21      9     11     13    9 0 0.46861 4 0 0.46861 4 ; C CA CB CG1 C CX 3C CT (AAAA->AAAD)
+    21      9     11     17    9 0 0.46861 4 0 0.46861 4 ; C CA CB CG2 C CX 3C CT (AAAA->AAAD)
+    21      9     11     23    9 0 0.65084 3 0 0.65084 3 ; C CA CB HV1 C CX 3C DUM_HC (AAAD->AAAA)
+    21      9     11     24    9 0 0.65084 3 0 0.65084 3 ; C CA CB HV2 C CX 3C DUM_HC (AAAD->AAAA)
+    21      9     11     25    9 180 0.05021 4 180 0.05021 4 ; C CA CB DCG C CX 3C DUM_CA (AAAD->AAAA)
+     7      9     21     22    9 0 0 2 0 0 2 ; N CA C O N CX C O (AAAA->AAAA)
+     7      9     21     37    9 0 0 4 0 0 4 ; N CA C N N CX C N (AAAA->AAAA)
+    10      9     21     22    9 180 0.33472 3 180 0 3 ; HA CA C O H1 CX C O (AAAA->AAAA)
+    10      9     21     37    9 0 0 2 0 0 2 ; HA CA C N H1 CX C N (AAAA->AAAA)
+    11      9     21     22    9 0 0 2 0 0 2 ; CB CA C O 3C CX C O (AAAA->AAAA)
+    11      9     21     37    9 0 0 4 0 0 4 ; CB CA C N 3C CX C N (AAAA->AAAA)
+     9     11     13     14    9 0 0.66944 3 0 0.66944 3 ; CA CB CG1 HG11 CX 3C CT HC (AAAA->AADD)
+     9     11     13     15    9 0 0.66944 3 0 0.66944 3 ; CA CB CG1 HG12 CX 3C CT HC (AAAA->AADD)
+     9     11     13     16    9 0 0.66944 3 0 0.66944 3 ; CA CB CG1 HG13 CX 3C CT HC (AAAA->AADD)
+    12     11     13     14    9 0 0.6276 3 0 0.6276 3 ; HB CB CG1 HG11 HC 3C CT HC (AAAA->DADD)
+    12     11     13     15    9 0 0.6276 3 0 0.6276 3 ; HB CB CG1 HG12 HC 3C CT HC (AAAA->DADD)
+    12     11     13     16    9 0 0.6276 3 0 0.6276 3 ; HB CB CG1 HG13 HC 3C CT HC (AAAA->DADD)
+    17     11     13     14    9 0 0.66944 3 0 0.66944 3 ; CG2 CB CG1 HG11 CT 3C CT HC (AAAA->DADD)
+    17     11     13     15    9 0 0.66944 3 0 0.66944 3 ; CG2 CB CG1 HG12 CT 3C CT HC (AAAA->DADD)
+    17     11     13     16    9 0 0.66944 3 0 0.66944 3 ; CG2 CB CG1 HG13 CT 3C CT HC (AAAA->DADD)
+    23     11     13     14    9 0 0 0 0 0 0 ; HV1 CB CG1 HG11 DUM_HC 3C CT HC (DAAA->AADD)
+    23     11     13     15    9 0 0 0 0 0 0 ; HV1 CB CG1 HG12 DUM_HC 3C CT HC (DAAA->AADD)
+    23     11     13     16    9 0 0 0 0 0 0 ; HV1 CB CG1 HG13 DUM_HC 3C CT HC (DAAA->AADD)
+    24     11     13     14    9 0 0 0 0 0 0 ; HV2 CB CG1 HG11 DUM_HC 3C CT HC (DAAA->AADD)
+    24     11     13     15    9 0 0 0 0 0 0 ; HV2 CB CG1 HG12 DUM_HC 3C CT HC (DAAA->AADD)
+    24     11     13     16    9 0 0 0 0 0 0 ; HV2 CB CG1 HG13 DUM_HC 3C CT HC (DAAA->AADD)
+    25     11     13     14    9 0 0 0 0 0 0 ; DCG CB CG1 HG11 DUM_CA 3C CT HC (DAAA->AADD)
+    25     11     13     15    9 0 0 0 0 0 0 ; DCG CB CG1 HG12 DUM_CA 3C CT HC (DAAA->AADD)
+    25     11     13     16    9 0 0 0 0 0 0 ; DCG CB CG1 HG13 DUM_CA 3C CT HC (DAAA->AADD)
+     9     11     17     18    9 0 0.66944 3 0 0.66944 3 ; CA CB CG2 HG21 CX 3C CT HC (AAAA->AADD)
+     9     11     17     19    9 0 0.66944 3 0 0.66944 3 ; CA CB CG2 HG22 CX 3C CT HC (AAAA->AADD)
+     9     11     17     20    9 0 0.66944 3 0 0.66944 3 ; CA CB CG2 HG23 CX 3C CT HC (AAAA->AADD)
+    12     11     17     18    9 0 0.6276 3 0 0.6276 3 ; HB CB CG2 HG21 HC 3C CT HC (AAAA->DADD)
+    12     11     17     19    9 0 0.6276 3 0 0.6276 3 ; HB CB CG2 HG22 HC 3C CT HC (AAAA->DADD)
+    12     11     17     20    9 0 0.6276 3 0 0.6276 3 ; HB CB CG2 HG23 HC 3C CT HC (AAAA->DADD)
+    13     11     17     18    9 0 0.66944 3 0 0.66944 3 ; CG1 CB CG2 HG21 CT 3C CT HC (AAAA->DADD)
+    13     11     17     19    9 0 0.66944 3 0 0.66944 3 ; CG1 CB CG2 HG22 CT 3C CT HC (AAAA->DADD)
+    13     11     17     20    9 0 0.66944 3 0 0.66944 3 ; CG1 CB CG2 HG23 CT 3C CT HC (AAAA->DADD)
+    23     11     17     18    9 0 0 0 0 0 0 ; HV1 CB CG2 HG21 DUM_HC 3C CT HC (DAAA->AADD)
+    23     11     17     19    9 0 0 0 0 0 0 ; HV1 CB CG2 HG22 DUM_HC 3C CT HC (DAAA->AADD)
+    23     11     17     20    9 0 0 0 0 0 0 ; HV1 CB CG2 HG23 DUM_HC 3C CT HC (DAAA->AADD)
+    24     11     17     18    9 0 0 0 0 0 0 ; HV2 CB CG2 HG21 DUM_HC 3C CT HC (DAAA->AADD)
+    24     11     17     19    9 0 0 0 0 0 0 ; HV2 CB CG2 HG22 DUM_HC 3C CT HC (DAAA->AADD)
+    24     11     17     20    9 0 0 0 0 0 0 ; HV2 CB CG2 HG23 DUM_HC 3C CT HC (DAAA->AADD)
+    25     11     17     18    9 0 0 0 0 0 0 ; DCG CB CG2 HG21 DUM_CA 3C CT HC (DAAA->AADD)
+    25     11     17     19    9 0 0 0 0 0 0 ; DCG CB CG2 HG22 DUM_CA 3C CT HC (DAAA->AADD)
+    25     11     17     20    9 0 0 0 0 0 0 ; DCG CB CG2 HG23 DUM_CA 3C CT HC (DAAA->AADD)
+     9     11     25     26    9 180 0.20083 4 180 0.20083 4 ; CA CB DCG DCD1 CX 3C DUM_CA DUM_CA (AADD->AAAA)
+     9     11     25     28    9 180 0.20083 4 180 0.20083 4 ; CA CB DCG DCD2 CX 3C DUM_CA DUM_CA (AADD->AAAA)
+    12     11     25     26    9 0 0 0 0 0 0 ; HB CB DCG DCD1 HC 3C DUM_CA DUM_CA (AADD->DAAA)
+    12     11     25     28    9 0 0 0 0 0 0 ; HB CB DCG DCD2 HC 3C DUM_CA DUM_CA (AADD->DAAA)
+    13     11     25     26    9 0 0 0 0 0 0 ; CG1 CB DCG DCD1 CT 3C DUM_CA DUM_CA (AADD->DAAA)
+    13     11     25     28    9 0 0 0 0 0 0 ; CG1 CB DCG DCD2 CT 3C DUM_CA DUM_CA (AADD->DAAA)
+    17     11     25     26    9 0 0 0 0 0 0 ; CG2 CB DCG DCD1 CT 3C DUM_CA DUM_CA (AADD->DAAA)
+    17     11     25     28    9 0 0 0 0 0 0 ; CG2 CB DCG DCD2 CT 3C DUM_CA DUM_CA (AADD->DAAA)
+    23     11     25     26    9 0 0 2 0 0 2 ; HV1 CB DCG DCD1 DUM_HC 3C DUM_CA DUM_CA (DADD->AAAA)
+    23     11     25     28    9 0 0 2 0 0 2 ; HV1 CB DCG DCD2 DUM_HC 3C DUM_CA DUM_CA (DADD->AAAA)
+    24     11     25     26    9 0 0 2 0 0 2 ; HV2 CB DCG DCD1 DUM_HC 3C DUM_CA DUM_CA (DADD->AAAA)
+    24     11     25     28    9 0 0 2 0 0 2 ; HV2 CB DCG DCD2 DUM_HC 3C DUM_CA DUM_CA (DADD->AAAA)
+     9     21     37     38    9 180 10.46 2 180 0 2 ; CA C N H CX C N H (AAAA->AAAA)
+     9     21     37     39    9 180 10.46 2 180 0 2 ; CA C N CH3 CX C N CT (AAAA->AAAA)
+    22     21     37     38    9
+    22     21     37     39    9
+    11     25     26     27    9 180 15.167 2 180 15.167 2 ; CB DCG DCD1 HV3 3C DUM_CA DUM_CA DUM_HA (ADDD->AAAA)
+    11     25     26     30    9 180 15.167 2 180 15.167 2 ; CB DCG DCD1 DCE1 3C DUM_CA DUM_CA DUM_CA (ADDD->AAAA)
+    28     25     26     27    9 180 15.167 2 180 15.167 2 ; DCD2 DCG DCD1 HV3 DUM_CA DUM_CA DUM_CA DUM_HA (DDDD->AAAA)
+    28     25     26     30    9 180 15.167 2 180 15.167 2 ; DCD2 DCG DCD1 DCE1 DUM_CA DUM_CA DUM_CA DUM_CA (DDDD->AAAA)
+    11     25     28     29    9 180 15.167 2 180 15.167 2 ; CB DCG DCD2 HV4 3C DUM_CA DUM_CA DUM_HA (ADDD->AAAA)
+    11     25     28     32    9 180 15.167 2 180 15.167 2 ; CB DCG DCD2 DCE2 3C DUM_CA DUM_CA DUM_CA (ADDD->AAAA)
+    26     25     28     29    9 180 15.167 2 180 15.167 2 ; DCD1 DCG DCD2 HV4 DUM_CA DUM_CA DUM_CA DUM_HA (DDDD->AAAA)
+    26     25     28     32    9 180 15.167 2 180 15.167 2 ; DCD1 DCG DCD2 DCE2 DUM_CA DUM_CA DUM_CA DUM_CA (DDDD->AAAA)
+    25     26     30     31    9 180 15.167 2 180 15.167 2 ; DCG DCD1 DCE1 HV5 DUM_CA DUM_CA DUM_CA DUM_HA (DDDD->AAAA)
+    25     26     30     34    9 180 15.167 2 180 15.167 2 ; DCG DCD1 DCE1 DCZ DUM_CA DUM_CA DUM_CA DUM_C (DDDD->AAAA)
+    27     26     30     31    9 180 15.167 2 180 15.167 2 ; HV3 DCD1 DCE1 HV5 DUM_HA DUM_CA DUM_CA DUM_HA (DDDD->AAAA)
+    27     26     30     34    9 180 15.167 2 180 15.167 2 ; HV3 DCD1 DCE1 DCZ DUM_HA DUM_CA DUM_CA DUM_C (DDDD->AAAA)
+    25     28     32     33    9 180 15.167 2 180 15.167 2 ; DCG DCD2 DCE2 HV6 DUM_CA DUM_CA DUM_CA DUM_HA (DDDD->AAAA)
+    25     28     32     34    9 180 15.167 2 180 15.167 2 ; DCG DCD2 DCE2 DCZ DUM_CA DUM_CA DUM_CA DUM_C (DDDD->AAAA)
+    29     28     32     33    9 180 15.167 2 180 15.167 2 ; HV4 DCD2 DCE2 HV6 DUM_HA DUM_CA DUM_CA DUM_HA (DDDD->AAAA)
+    29     28     32     34    9 180 15.167 2 180 15.167 2 ; HV4 DCD2 DCE2 DCZ DUM_HA DUM_CA DUM_CA DUM_C (DDDD->AAAA)
+    26     30     34     32    9 180 15.167 2 180 15.167 2 ; DCD1 DCE1 DCZ DCE2 DUM_CA DUM_CA DUM_C DUM_CA (DDDD->AAAA)
+    26     30     34     35    9 180 15.167 2 180 15.167 2 ; DCD1 DCE1 DCZ DOH DUM_CA DUM_CA DUM_C DUM_OH (DDDD->AAAA)
+    31     30     34     32    9 180 15.167 2 180 15.167 2 ; HV5 DCE1 DCZ DCE2 DUM_HA DUM_CA DUM_C DUM_CA (DDDD->AAAA)
+    31     30     34     35    9 180 15.167 2 180 15.167 2 ; HV5 DCE1 DCZ DOH DUM_HA DUM_CA DUM_C DUM_OH (DDDD->AAAA)
+    28     32     34     30    9 180 15.167 2 180 15.167 2 ; DCD2 DCE2 DCZ DCE1 DUM_CA DUM_CA DUM_C DUM_CA (DDDD->AAAA)
+    28     32     34     35    9 180 15.167 2 180 15.167 2 ; DCD2 DCE2 DCZ DOH DUM_CA DUM_CA DUM_C DUM_OH (DDDD->AAAA)
+    33     32     34     30    9 180 15.167 2 180 15.167 2 ; HV6 DCE2 DCZ DCE1 DUM_HA DUM_CA DUM_C DUM_CA (DDDD->AAAA)
+    33     32     34     35    9 180 15.167 2 180 15.167 2 ; HV6 DCE2 DCZ DOH DUM_HA DUM_CA DUM_C DUM_OH (DDDD->AAAA)
+    30     34     35     36    9 0 0.27196 4 0 0.27196 4 ; DCE1 DCZ DOH HV7 DUM_CA DUM_C DUM_OH DUM_HO (DDDD->AAAA)
+    32     34     35     36    9 0 0.27196 4 0 0.27196 4 ; DCE2 DCZ DOH HV7 DUM_CA DUM_C DUM_OH DUM_HO (DDDD->AAAA)
+    21     37     39     40    9
+    21     37     39     41    9
+    21     37     39     42    9
+    38     37     39     40    9
+    38     37     39     41    9
+    38     37     39     42    9
+     2      7      5      6    4
+     5      9      7      8    4 180 4.6024 2 180 0 2 ; C CA N H C CX N H (AAAA->AAAA)
+     9     37     21     22    4 180 43.932 2 180 0 2 ; CA N C O CX N C O (AAAA->AAAA)
+    11     25     28     26    4 180 4.6024 2 180 0 2 ; CB DCG DCD2 DCD1 3C DUM_CA DUM_CA DUM_CA (ADDD->AAAA)
+    21     39     37     38    4
+    25     30     26     27    4 180 4.6024 2 180 0 2 ; DCG DCE1 DCD1 HV3 DUM_CA DUM_CA DUM_CA DUM_HA (DDDD->AAAA)
+    25     32     28     29    4 180 4.6024 2 180 0 2 ; DCG DCE2 DCD2 HV4 DUM_CA DUM_CA DUM_CA DUM_HA (DDDD->AAAA)
+    26     34     30     31    4 180 4.6024 2 180 0 2 ; DCD1 DCZ DCE1 HV5 DUM_CA DUM_C DUM_CA DUM_HA (DDDD->AAAA)
+    30     32     34     35    4 180 4.6024 2 180 0 2 ; DCE1 DCE2 DCZ DOH DUM_CA DUM_CA DUM_C DUM_OH (DDDD->AAAA)
+    33     32     28     34    4 180 4.6024 2 180 0 2 ; HV6 DCE2 DCD2 DCZ DUM_HA DUM_CA DUM_CA DUM_C (DDDD->AAAA)
+     5      9      7      8    4 180 0 2 180 4.6024 2 ; C CA N H C CX N H (AAAA->AAAA)
+     9     37     21     22    4 180 0 2 180 43.932 2 ; CA N C O CX N C O (AAAA->AAAA)
+    25     32     28     29    4 180 0 2 180 4.6024 2 ; DCG DCE2 DCD2 HV4 DUM_CA DUM_CA DUM_CA DUM_HA (DDDD->AAAA)
+    33     32     28     34    4 180 0 2 180 4.6024 2 ; HV6 DCE2 DCD2 DCZ DUM_HA DUM_CA DUM_CA DUM_C (DDDD->AAAA)
+    26     34     30     31    4 180 0 2 180 4.6024 2 ; DCD1 DCZ DCE1 HV5 DUM_CA DUM_C DUM_CA DUM_HA (DDDD->AAAA)
+    25     30     26     27    4 180 0 2 180 4.6024 2 ; DCG DCE1 DCD1 HV3 DUM_CA DUM_CA DUM_CA DUM_HA (DDDD->AAAA)
+    11     25     28     26    4 180 0 2 180 4.6024 2 ; CB DCG DCD2 DCD1 3C DUM_CA DUM_CA DUM_CA (ADDD->AAAA)
+    30     32     34     35    4 180 0 2 180 4.6024 2 ; DCE1 DCE2 DCZ DOH DUM_CA DUM_CA DUM_C DUM_OH (DDDD->AAAA)
+     2      5      7      9    9 180 0 2 180 10.46 2 ; CH3 C N CA CT C N CX (AAAA->AAAA)
+     6      5      7      9    9 180 0 2 180 10.46 2 ; O C N CA O C N CX (AAAA->AAAA)
+     5      7      9     10    9 0 0 2 0 0 2 ; C N CA HA C N CX H1 (AAAA->AAAA)
+     5      7      9     11    9 0 3.3472 3 0 0 3 ; C N CA CB C N CX 3C (AAAA->AAAA)
+     5      7      9     11    9 0 7.5312 2 0 0 2 ; C N CA CB C N CX 3C (AAAA->AAAA)
+     5      7      9     11    9 0 8.368 1 0 0 1 ; C N CA CB C N CX 3C (AAAA->AAAA)
+     5      7      9     11    9 0 0 4 0 0 4 ; C N CA CB C N CX 3C (AAAA->AAAA)
+     5      7      9     11    9 0 0 3 0 3.3472 3 ; C N CA CB C N CX 3C (AAAA->AAAA)
+     5      7      9     11    9 0 0 2 0 7.5312 2 ; C N CA CB C N CX 3C (AAAA->AAAA)
+     5      7      9     11    9 0 0 1 0 8.368 1 ; C N CA CB C N CX 3C (AAAA->AAAA)
+     5      7      9     21    9 0 1.75728 3 0 0 3 ; C N CA C C N CX C (AAAA->AAAA)
+     5      7      9     21    9 0 1.12968 2 0 0 2 ; C N CA C C N CX C (AAAA->AAAA)
+     5      7      9     21    9 0 0 1 0 0 1 ; C N CA C C N CX C (AAAA->AAAA)
+     5      7      9     21    9 0 0 4 0 0 4 ; C N CA C C N CX C (AAAA->AAAA)
+     5      7      9     21    9 0 0 3 0 1.75728 3 ; C N CA C C N CX C (AAAA->AAAA)
+     5      7      9     21    9 0 0 2 0 1.12968 2 ; C N CA C C N CX C (AAAA->AAAA)
+     5      7      9     21    9 0 0 1 0 0 1 ; C N CA C C N CX C (AAAA->AAAA)
+     8      7      9     10    9 0 0 2 0 0 2 ; H N CA HA H N CX H1 (AAAA->AAAA)
+     8      7      9     11    9 0 0 2 0 0 2 ; H N CA CB H N CX 3C (AAAA->AAAA)
+     8      7      9     21    9 0 0 2 0 0 2 ; H N CA C H N CX C (AAAA->AAAA)
+     7      9     11     13    9 0 0.61923 3 0 0.61923 3 ; N CA CB CG1 N CX 3C CT (AAAA->AAAD)
+     7      9     11     13    9 180 0.90374 2 180 0.90374 2 ; N CA CB CG1 N CX 3C CT (AAAA->AAAD)
+     7      9     11     13    9 0 1.41001 1 0 1.41001 1 ; N CA CB CG1 N CX 3C CT (AAAA->AAAD)
+     7      9     11     17    9 0 0.61923 3 0 0.61923 3 ; N CA CB CG2 N CX 3C CT (AAAA->AAAD)
+     7      9     11     17    9 180 0.90374 2 180 0.90374 2 ; N CA CB CG2 N CX 3C CT (AAAA->AAAD)
+     7      9     11     17    9 0 1.41001 1 0 1.41001 1 ; N CA CB CG2 N CX 3C CT (AAAA->AAAD)
+     7      9     11     25    9 0 0.80333 3 0 0.80333 3 ; N CA CB DCG N CX 3C DUM_CA (AAAD->AAAA)
+     7      9     11     25    9 180 1.21336 2 180 1.21336 2 ; N CA CB DCG N CX 3C DUM_CA (AAAD->AAAA)
+     7      9     11     25    9 180 0.05021 1 180 0.05021 1 ; N CA CB DCG N CX 3C DUM_CA (AAAD->AAAA)
+    21      9     11     13    9 0 0.61923 3 0 0.61923 3 ; C CA CB CG1 C CX 3C CT (AAAA->AAAD)
+    21      9     11     13    9 180 1.20918 2 180 1.20918 2 ; C CA CB CG1 C CX 3C CT (AAAA->AAAD)
+    21      9     11     13    9 180 1.6987 1 180 1.6987 1 ; C CA CB CG1 C CX 3C CT (AAAA->AAAD)
+    21      9     11     17    9 0 0.61923 3 0 0.61923 3 ; C CA CB CG2 C CX 3C CT (AAAA->AAAD)
+    21      9     11     17    9 180 1.20918 2 180 1.20918 2 ; C CA CB CG2 C CX 3C CT (AAAA->AAAD)
+    21      9     11     17    9 180 1.6987 1 180 1.6987 1 ; C CA CB CG2 C CX 3C CT (AAAA->AAAD)
+    21      9     11     25    9 0 0.80333 3 0 0.80333 3 ; C CA CB DCG C CX 3C DUM_CA (AAAD->AAAA)
+    21      9     11     25    9 180 1.9623 2 180 1.9623 2 ; C CA CB DCG C CX 3C DUM_CA (AAAD->AAAA)
+    21      9     11     25    9 0 0.23012 1 0 0.23012 1 ; C CA CB DCG C CX 3C DUM_CA (AAAD->AAAA)
+     7      9     21     22    9 0 0 2 0 0 2 ; N CA C O N CX C O (AAAA->AAAA)
+     7      9     21     37    9 180 2.3012 3 180 0 3 ; N CA C N N CX C N (AAAA->AAAA)
+     7      9     21     37    9 180 6.61072 2 180 0 2 ; N CA C N N CX C N (AAAA->AAAA)
+     7      9     21     37    9 180 1.8828 1 180 0 1 ; N CA C N N CX C N (AAAA->AAAA)
+     7      9     21     37    9 0 0 4 0 0 4 ; N CA C N N CX C N (AAAA->AAAA)
+     7      9     21     37    9 180 0 3 180 2.3012 3 ; N CA C N N CX C N (AAAA->AAAA)
+     7      9     21     37    9 180 0 2 180 6.61072 2 ; N CA C N N CX C N (AAAA->AAAA)
+     7      9     21     37    9 180 0 1 180 1.8828 1 ; N CA C N N CX C N (AAAA->AAAA)
+    10      9     21     22    9 0 0 2 0 0 2 ; HA CA C O H1 CX C O (AAAA->AAAA)
+    10      9     21     22    9 0 3.3472 1 0 0 1 ; HA CA C O H1 CX C O (AAAA->AAAA)
+    10      9     21     22    9 180 0 3 180 0.33472 3 ; HA CA C O H1 CX C O (AAAA->AAAA)
+    10      9     21     22    9 0 0 2 0 0 2 ; HA CA C O H1 CX C O (AAAA->AAAA)
+    10      9     21     22    9 0 0 1 0 3.3472 1 ; HA CA C O H1 CX C O (AAAA->AAAA)
+    10      9     21     37    9 0 0 2 0 0 2 ; HA CA C N H1 CX C N (AAAA->AAAA)
+    11      9     21     22    9 0 0 2 0 0 2 ; CB CA C O 3C CX C O (AAAA->AAAA)
+    11      9     21     37    9 0 1.6736 3 0 0 3 ; CB CA C N 3C CX C N (AAAA->AAAA)
+    11      9     21     37    9 0 0.8368 2 0 0 2 ; CB CA C N 3C CX C N (AAAA->AAAA)
+    11      9     21     37    9 0 0.8368 1 0 0 1 ; CB CA C N 3C CX C N (AAAA->AAAA)
+    11      9     21     37    9 0 0 4 0 0 4 ; CB CA C N 3C CX C N (AAAA->AAAA)
+    11      9     21     37    9 0 0 3 0 1.6736 3 ; CB CA C N 3C CX C N (AAAA->AAAA)
+    11      9     21     37    9 0 0 2 0 0.8368 2 ; CB CA C N 3C CX C N (AAAA->AAAA)
+    11      9     21     37    9 0 0 1 0 0.8368 1 ; CB CA C N 3C CX C N (AAAA->AAAA)
+     9     11     25     26    9 0 0 3 0 0 3 ; CA CB DCG DCD1 CX 3C DUM_CA DUM_CA (AADD->AAAA)
+     9     11     25     26    9 180 0.2887 2 180 0.2887 2 ; CA CB DCG DCD1 CX 3C DUM_CA DUM_CA (AADD->AAAA)
+     9     11     25     26    9 0 0 1 0 0 1 ; CA CB DCG DCD1 CX 3C DUM_CA DUM_CA (AADD->AAAA)
+     9     11     25     28    9 0 0 3 0 0 3 ; CA CB DCG DCD2 CX 3C DUM_CA DUM_CA (AADD->AAAA)
+     9     11     25     28    9 180 0.2887 2 180 0.2887 2 ; CA CB DCG DCD2 CX 3C DUM_CA DUM_CA (AADD->AAAA)
+     9     11     25     28    9 0 0 1 0 0 1 ; CA CB DCG DCD2 CX 3C DUM_CA DUM_CA (AADD->AAAA)
+     9     21     37     38    9 180 0 2 180 10.46 2 ; CA C N H CX C N H (AAAA->AAAA)
+     9     21     37     39    9 180 0 2 180 10.46 2 ; CA C N CH3 CX C N CT (AAAA->AAAA)
+    30     34     35     36    9 0 0 3 0 0 3 ; DCE1 DCZ DOH HV7 DUM_CA DUM_C DUM_OH DUM_HO (DDDD->AAAA)
+    30     34     35     36    9 180 3.69447 2 180 3.69447 2 ; DCE1 DCZ DOH HV7 DUM_CA DUM_C DUM_OH DUM_HO (DDDD->AAAA)
+    30     34     35     36    9 0 0 1 0 0 1 ; DCE1 DCZ DOH HV7 DUM_CA DUM_C DUM_OH DUM_HO (DDDD->AAAA)
+    32     34     35     36    9 0 0 3 0 0 3 ; DCE2 DCZ DOH HV7 DUM_CA DUM_C DUM_OH DUM_HO (DDDD->AAAA)
+    32     34     35     36    9 180 3.69447 2 180 3.69447 2 ; DCE2 DCZ DOH HV7 DUM_CA DUM_C DUM_OH DUM_HO (DDDD->AAAA)
+    32     34     35     36    9 0 0 1 0 0 1 ; DCE2 DCZ DOH HV7 DUM_CA DUM_C DUM_OH DUM_HO (DDDD->AAAA)

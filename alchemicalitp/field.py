@@ -1,4 +1,4 @@
-from .entry import Comment, Atomtype, Atom, Bond, Pair, Angle, Dihedral
+from .entry import Comment, Atomtype, Atom, Bond, Pair, Angle, Dihedral, Cmap
 import copy
 import numpy as np
 
@@ -168,6 +168,31 @@ class Atomtypes(Field):
         name, at_num, mass, charge, ptype, sigma, epsilon = line.strip().split()
         self.content.append(Atomtype(name, at_num, mass, charge, ptype, sigma, epsilon, comment=comment))
 
+class Cmaptypes(Field):
+    def __init__(self):
+        super().__init__('Cmaptypes')
+
+    def add_entry(self, line):
+        line, comment = super().add_entry(line)
+        elements = line.strip().split()
+        names = elements[:5]
+        func = elements[5]
+        if len(elements) > 6:
+            rows, cols = elements[6], elements[7]
+            data = elements[8:]
+            assert len(data) == int(rows) * int(cols)
+            self.content.append(Cmap(names, func, rows, cols, data, comment=comment))
+        else:
+            self.content.append(Cmap(names, func, comment=comment))
+
+class Cmaps(Cmaptypes):
+    def __init__(self):
+        super(Cmaptypes, self).__init__('Cmap')
+
+    def sort(self):
+        self.merge_comment()
+        self.content.sort(key = lambda x: [int(name) for name in x.names])
+
 class Atoms(Field):
     def __init__(self):
         super().__init__('Atoms')
@@ -186,7 +211,19 @@ class Atoms(Field):
             if not isinstance(line, Comment):
                 if line.nr == idx:
                     return getattr(line, attr)
-    def stateA2intermediate(self):
+
+    def _find_nearest_int_charge(self, state_A, state_B,
+                                 state_inter_A, state_inter_B):
+        '''Find the nearest interger charge for the middle state'''
+        assert np.isclose(np.round(state_A) - state_A,
+                          np.round(state_B) - state_B,
+                          atol=0.001)
+        offset = np.round(state_A) - state_A
+        aim_charge = np.round((state_inter_A + state_inter_B) / 2
+                              + offset)
+        return aim_charge - offset
+
+    def stateA2intermediate(self, charge_conservation):
         atoms = []
         for atom in self.content:
             if atom.typeB:
@@ -197,8 +234,7 @@ class Atoms(Field):
             [float(atom.charge) for atom in atoms if atom.type[:3] != 'DUM' and atom.typeB[:3] != 'DUM'])
         state_inter_B = sum(
             [float(atom.chargeB) for atom in atoms if atom.type[:3] != 'DUM' and atom.typeB[:3] != 'DUM'])
-        aim_charge = (state_A + state_B) / 2
-        current_charge = (state_inter_A + state_inter_B) / 2
+
         abs_change = sum([abs(float(atom.chargeB) - float(atom.charge)) for atom in atoms if atom.type[:3] != 'DUM' and atom.typeB[:3] != 'DUM'])
         for atom in atoms:
             if atom.type[:3] == 'DUM':
@@ -208,13 +244,20 @@ class Atoms(Field):
                 atom.chargeB = float(atom.chargeB)
             else:
                 # make sure the charge is balanced
-                atom.chargeB = (float(atom.charge) + float(atom.chargeB)) / 2 + \
+                if charge_conservation is None:
+                    atom.chargeB = (float(atom.charge) + float(
+                        atom.chargeB)) / 2
+                elif charge_conservation == 'nearest':
+                    aim_charge = self._find_nearest_int_charge(state_A, state_B,
+                                 state_inter_A, state_inter_B)
+                    current_charge = (state_inter_A + state_inter_B) / 2
+                    atom.chargeB = (float(atom.charge) + float(atom.chargeB)) / 2 + \
                                abs((float(atom.chargeB) - float(atom.charge)) / 2) / (abs_change/2) * (aim_charge-current_charge)
         sum_charge = sum([atom.chargeB for atom in atoms])
         for atom in atoms:
             atom.str_charge()
 
-    def intermediate2stateB(self):
+    def intermediate2stateB(self, charge_conservation):
         atoms = []
         for atom in self.content:
             if atom.typeB:
@@ -226,8 +269,6 @@ class Atoms(Field):
             [float(atom.charge) for atom in atoms if atom.type[:3] != 'DUM' and atom.typeB[:3] != 'DUM'])
         state_inter_B = sum(
             [float(atom.chargeB) for atom in atoms if atom.type[:3] != 'DUM' and atom.typeB[:3] != 'DUM'])
-        aim_charge = (state_A + state_B) / 2
-        current_charge = (state_inter_A + state_inter_B) / 2
         abs_change = sum([abs(float(atom.chargeB) - float(atom.charge)) for atom in atoms if atom.type[:3] != 'DUM' and atom.typeB[:3] != 'DUM'])
 
         for atom in atoms:
@@ -237,9 +278,16 @@ class Atoms(Field):
                 # Makes sure that if it end with a dummy, it start with a dummy as no vdw is modified
                 atom.charge = 0
             else:
-                # make sure the charge is balanced
-                atom.charge = (float(atom.charge) + float(atom.chargeB)) / 2 + \
-                               abs((float(atom.chargeB) - float(atom.charge)) / 2) / (abs_change/2) * (aim_charge-current_charge)
+                if charge_conservation is None:
+                    atom.charge = (float(atom.charge) + float(
+                        atom.chargeB)) / 2
+                elif charge_conservation == 'nearest':
+                    aim_charge = self._find_nearest_int_charge(state_A, state_B,
+                                 state_inter_A, state_inter_B)
+                    current_charge = (state_inter_A + state_inter_B) / 2
+                    # make sure the charge is balanced
+                    atom.charge = (float(atom.charge) + float(atom.chargeB)) / 2 + \
+                                   abs((float(atom.chargeB) - float(atom.charge)) / 2) / (abs_change/2) * (aim_charge-current_charge)
 
         for atom in atoms:
             atom.str_charge()

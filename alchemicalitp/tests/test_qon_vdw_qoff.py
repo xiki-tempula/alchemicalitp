@@ -5,18 +5,17 @@ Unit and regression test for the alchemicalitp package.
 # Import package, test suite, and other packages as needed
 import alchemicalitp
 import pytest
-import sys
-import os
+from pkg_resources import resource_filename
 
 @pytest.fixture
 def aejn():
-    topology = alchemicalitp.top.Topology(filename=os.path.join(os.path.dirname(__file__), 'AEJN.itp'))
+    topology = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'AEJN.itp'))
     top_A, top_B = topology.split_coul()
     return topology, top_A, top_B
 
 @pytest.fixture
 def ajen():
-    topology = alchemicalitp.top.Topology(filename=os.path.join(os.path.dirname(__file__), 'AJEN.itp'))
+    topology = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'AJEN.itp'))
     top_A, top_B = topology.split_coul()
     return topology, top_A, top_B
 
@@ -31,14 +30,15 @@ def test_changed_atom(aejn):
     topology, top_A, top_B = aejn
     # Test phase 1
     atom = top_A.content_dict['atoms'][7]
+    print()
     assert (atom.nr, atom.type, atom.resnr, atom.residue, atom.atom, atom.cgnr, atom.charge, atom.mass,
             atom.typeB, atom.chargeB, atom.massB) == (
-        7, 'N', 2, 'E2J', 'N', 7, '-0.516300', '14.0100', 'N', '-0.445409', '14.0100')
+        7, 'N', 2, 'E2J', 'N', 7, '-0.516300', '14.0100', 'N', '-0.466000', '14.0100')
     # Test phase 2
     atom = top_B.content_dict['atoms'][7]
     assert (atom.nr, atom.type, atom.resnr, atom.residue, atom.atom, atom.cgnr, atom.charge, atom.mass,
             atom.typeB, atom.chargeB, atom.massB) == (
-        7, 'N', 2, 'E2J', 'N', 7, '-0.445409', '14.0100', 'N', '-0.415700', '14.0100')
+        7, 'N', 2, 'E2J', 'N', 7, '-0.466000', '14.0100', 'N', '-0.415700', '14.0100')
 
 def test_type_changed_atom(aejn):
     # test types change as well
@@ -47,12 +47,12 @@ def test_type_changed_atom(aejn):
     atom = top_A.content_dict['atoms'][9]
     assert (atom.nr, atom.type, atom.resnr, atom.residue, atom.atom, atom.cgnr, atom.charge, atom.mass,
             atom.typeB, atom.chargeB, atom.massB) == (
-        9, 'CT', 2, 'E2J', 'CA', 9, '0.039700', '12.0100', 'CT', '0.032258', '12.0100')
+        9, 'CT', 2, 'E2J', 'CA', 9, '0.039700', '12.0100', 'CT', '0.027100', '12.0100')
     # Test phase 2
     atom = top_B.content_dict['atoms'][9]
     assert (atom.nr, atom.type, atom.resnr, atom.residue, atom.atom, atom.cgnr, atom.charge, atom.mass,
             atom.typeB, atom.chargeB, atom.massB) == (
-        9, 'CT', 2, 'E2J', 'CA', 9, '0.032258', '12.0100', 'CT', '0.014500', '12.0100')
+        9, 'CT', 2, 'E2J', 'CA', 9, '0.027100', '12.0100', 'CT', '0.014500', '12.0100')
 
 def test_dum2_atom(aejn):
     # test from dummy to a real atom

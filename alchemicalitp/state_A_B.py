@@ -1,5 +1,5 @@
 import copy
-from .field import Moleculetype, Atoms, Bonds, Pairs, Angles, Dihedrals
+from .field import Moleculetype, Atoms, Bonds, Pairs, Angles, Dihedrals, Cmaps
 from .entry import Comment, Dummy_Atomtype
 
 class Alchemistry():
@@ -16,6 +16,7 @@ class Alchemistry():
         self._merge_defaults()
         self._merge_atomtypes()
         self._add_dummy_atomtypes()
+        self._merge_cmaptypes()
         self._create_moleculetype()
         self._merge_atoms()
         self.A_list = self._update_top_list(self.top_A_list, self.top_A_id_map)
@@ -24,6 +25,7 @@ class Alchemistry():
         self._merge_pairs()
         self._merge_angles()
         self._merge_dihedrals()
+        self._merge_cmaps()
 
     def _merge_defaults(self):
         assert self.top_A.content_dict['defaults'] == self.top_B.content_dict['defaults']
@@ -32,6 +34,11 @@ class Alchemistry():
     def _merge_atomtypes(self):
         self.content_dict['atomtypes'] = copy.copy(self.top_A.content_dict['atomtypes'])
         self.content_dict['atomtypes'].union(self.top_B.content_dict['atomtypes'])
+
+    def _merge_cmaptypes(self):
+        if 'cmaptypes' in self.top_A.content_dict or 'cmaptypes' in self.top_B.content_dict:
+            self.content_dict['cmaptypes'] = copy.copy(self.top_A.content_dict['cmaptypes'])
+            self.content_dict['cmaptypes'].union(self.top_B.content_dict['cmaptypes'])
 
     def _add_dummy_atomtypes(self):
         self.content_dict['atomtypes'].append(Dummy_Atomtype())
@@ -137,7 +144,7 @@ class Alchemistry():
                 new_list.append(None)
         return new_list
 
-    def _merge_entrie(self, entry_A, entry_B):
+    def _merge_entry(self, entry_A, entry_B):
         if entry_A is None:
             new_entry = copy.deepcopy(entry_B)
             new_entry.comment += 'Entry from topology 2'
@@ -164,7 +171,7 @@ class Alchemistry():
         while top_A_idx < top_A_length or top_B_idx < top_B_length:
             entry_A = entries_A[top_A_idx]
             entry_B = entries_B[top_B_idx]
-            new_entry = self._merge_entrie(entry_A, entry_B)
+            new_entry = self._merge_entry(entry_A, entry_B)
             if new_entry:
                 top_A_idx += 1
                 top_B_idx += 1
@@ -233,6 +240,18 @@ class Alchemistry():
         new_dihedral = Dihedrals()
         self._merge_entries(top_A_dihedral, top_B_dihedral, new_dihedral)
         self.content_dict['dihedrals'] = new_dihedral
+
+    def _merge_cmaps(self):
+        if 'cmap' in self.top_A.content_dict and 'cmap' in self.top_B.content_dict:
+            top_A_cmap = self.top_A.content_dict['cmap']
+            top_B_cmap = self.top_B.content_dict['cmap']
+            new_cmap = Cmaps()
+            self._merge_entries(top_A_cmap, top_B_cmap, new_cmap)
+            self.content_dict['cmap'] = new_cmap
+        elif (not 'cmap' in self.top_A.content_dict) and (not 'cmap' in self.top_B.content_dict):
+            pass
+        else:
+            assert 'cmap' in self.top_A.content_dict == 'cmap' in self.top_B.content_dict, 'cmap need to present in both topology files'
 
 class MakeLambdas():
     def __init__(self, top, lambdas):

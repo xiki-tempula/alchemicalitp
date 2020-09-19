@@ -70,6 +70,56 @@ class Atomtype(EntryBase):
     def __repr__(self):
         return str((self.name, self.at_num, self.mass, self.charge, self.ptype, self.sigma, self.epsilon))
 
+class Cmap(EntryBase):
+    def __init__(self, names, func, rows='', cols='', data='', comment=''):
+        self.names = names
+        self.func = func
+        self.rows = rows
+        self.cols = cols
+        self.data = data
+        self.comment = comment
+
+    def to_str(self):
+        name = '{: <7} {: <7} {: <7} {: <7} {: <7} {: <6} {: <6} {: <6}'.format(*self.names, self.func, self.rows, self.cols)
+        if self.data:
+            data = np.array_split(self.data, len(self.data)//10)
+            data = [' '.join(['{: <16}'.format(num) for num in line]) for line in data]
+            data = '\\\n'.join(data)
+            return '{} ; {}'.format(name + '\\\n' + data, self.comment)
+        else:
+            return '{} ; {}'.format(name + self.data, self.comment)
+    def __repr__(self):
+        name = '{: <7} {: <7} {: <7} {: <7} {: <7}'.format(*self.names)
+        func = '{: <6} {: <6} {: <6}'.format(self.func, self.rows, self.cols)
+        return str(name, func)
+
+    def update_idx(self, mapping):
+        new_names = []
+        for name in self.names:
+            new_names.append(mapping[int(name)])
+        self.names = new_names
+
+    def equal_idx(self, other):
+        if self.names == other.names:
+            return True
+        else:
+            return False
+
+    def add_stateB(self, other):
+        new = copy.copy(self)
+        if new == other:
+            new.comment = join_comment(new.comment, other.comment)
+            return new
+        elif new.equal_idx(other):
+            raise NotImplementedError('Cmap alchemcial transformation not supported')
+        else:
+            return False
+
+    def __eq__(self, other):
+        if (self.names, self.func, self.rows, self.cols, self.data) == (other.names, other.func, other.rows, other.cols, other.data):
+            return True
+        else:
+            return False
 
 class Dummy_Atomtype(Atomtype):
     def __init__(self):
@@ -149,6 +199,7 @@ class Atom(EntryBase):
             return True
         else:
             return False
+
 class Pair(EntryBase):
     def __init__(self, i, j, func, comment=''):
         # Make sure that the entry is sorted

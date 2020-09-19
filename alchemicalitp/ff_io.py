@@ -1,5 +1,5 @@
 import os
-from .field import Default, Moleculetype, Atomtypes, Atoms, Bonds, Pairs, Angles, Dihedrals
+from .field import Default, Moleculetype, Atomtypes, Atoms, Bonds, Pairs, Angles, Dihedrals, Cmaptypes, Cmaps
 # from top import Topology
 
 class Reader():
@@ -8,6 +8,10 @@ class Reader():
 
         with open(filename, 'r') as f:
             txt = f.read()
+
+        # To change \ into none
+        txt = txt.replace('\\\n', ' ')
+
         sections = txt.split('[')
 
         # Ensure at least one field exists
@@ -60,6 +64,10 @@ class Reader():
             return Angles()
         elif name == 'dihedrals':
             return Dihedrals()
+        elif name == 'cmap':
+            return Cmaps()
+        elif name == 'cmaptypes':
+            return Cmaptypes()
         else:
             return None
 
@@ -79,12 +87,18 @@ class itpWriter():
         f.write('\n')
         f.write(self.top.content_dict['dihedrals'].to_str())
         f.write('\n')
+        if 'cmap' in self.top.content_dict:
+            f.write(self.top.content_dict['cmap'].to_str())
+            f.write('\n')
 
     def write_top(self, f):
         f.write(self.top.content_dict['defaults'].to_str())
         f.write('\n')
         f.write(self.top.content_dict['atomtypes'].to_str())
         f.write('\n')
+        if 'cmaptypes' in self.top.content_dict:
+            f.write(self.top.content_dict['cmaptypes'].to_str())
+            f.write('\n')
 
 class rtpWriter():
     def __init__(self, topology, f):

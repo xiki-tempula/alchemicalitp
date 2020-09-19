@@ -5,20 +5,19 @@ Unit and regression test for the alchemicalitp package.
 # Import package, test suite, and other packages as needed
 import alchemicalitp
 import pytest
-import sys
-import os
+from pkg_resources import resource_filename
 
 @pytest.fixture
 def dum_to():
-    glu = alchemicalitp.top.Topology(filename=os.path.join(os.path.dirname(__file__), 'GLU.top'))
-    glh = alchemicalitp.top.Topology(filename=os.path.join(os.path.dirname(__file__), 'GLH.top'))
+    glu = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'GLU.top'))
+    glh = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'GLH.top'))
     glu2glh = glu.add_stateB(glh, [19, None,], [19, 20,])
     return glu, glh, glu2glh
 
 @pytest.fixture
 def to_dum():
-    glu = alchemicalitp.top.Topology(filename=os.path.join(os.path.dirname(__file__), 'GLU.top'))
-    glh = alchemicalitp.top.Topology(filename=os.path.join(os.path.dirname(__file__), 'GLH.top'))
+    glu = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'GLU.top'))
+    glh = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'GLH.top'))
     glh2glu = glh.add_stateB(glu, [19, 20, ], [19, None, ])
     return glu, glh, glh2glu
 

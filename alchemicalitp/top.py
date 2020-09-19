@@ -42,14 +42,16 @@ class Topology():
         new_top.content_dict['dihedrals'].to_stateB()
         return new_top
 
-    def write(self, filename=None, format = 'itp'):
-        if format == 'itp':
+    def write(self, filename=None, format = None):
+        if format is None:
+            format = os.path.splitext(filename)[-1]
+        if format == '.itp':
             if filename is None:
                 filename = self.name + '.itp'
             writer = itpWriter(self)
             with open(filename, 'w') as f:
                 writer.write_itp(f)
-        elif format == 'top':
+        elif format == '.top':
             if filename is None:
                 filename = self.name + '.top'
             writer = itpWriter(self)
@@ -66,14 +68,14 @@ class Topology():
     def remove_zero(self):
         self.content_dict['dihedrals'] = self.content_dict['dihedrals'].remove_zero()
 
-    def split_coul(self):
+    def split_coul(self, charge_conservation=None):
         # From state A to intermediate
         new_top_1 = copy.deepcopy(self)
-        new_top_1.content_dict['atoms'].stateA2intermediate()
+        new_top_1.content_dict['atoms'].stateA2intermediate(charge_conservation)
         new_top_1.name = new_top_1.name + '2intermediate'
         # From state intermediate to B
         new_top_2 = copy.deepcopy(self)
-        new_top_2.content_dict['atoms'].intermediate2stateB()
+        new_top_2.content_dict['atoms'].intermediate2stateB(charge_conservation)
         new_top_2.name = 'intermediate2' + new_top_2.name
         return new_top_1, new_top_2
 
