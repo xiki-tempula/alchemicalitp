@@ -1,4 +1,5 @@
 import copy
+import warnings
 from .field import Moleculetype, Atoms, Bonds, Pairs, Angles, Dihedrals, Cmaps
 from .entry import Comment, Dummy_Atomtype
 
@@ -28,12 +29,14 @@ class Alchemistry():
         self._merge_cmaps()
 
     def _merge_defaults(self):
-        assert self.top_A.content_dict['defaults'] == self.top_B.content_dict['defaults']
-        self.content_dict['defaults'] = self.top_A.content_dict['defaults']
+        if 'defaults' in self.top_A.content_dict and 'defaults' in self.top_B.content_dict:
+            assert self.top_A.content_dict['defaults'] == self.top_B.content_dict['defaults']
+            self.content_dict['defaults'] = self.top_A.content_dict['defaults']
 
     def _merge_atomtypes(self):
-        self.content_dict['atomtypes'] = copy.copy(self.top_A.content_dict['atomtypes'])
-        self.content_dict['atomtypes'].union(self.top_B.content_dict['atomtypes'])
+        if 'atomtypes' in self.top_A.content_dict and 'atomtypes' in self.top_B.content_dict:
+            self.content_dict['atomtypes'] = copy.copy(self.top_A.content_dict['atomtypes'])
+            self.content_dict['atomtypes'].union(self.top_B.content_dict['atomtypes'])
 
     def _merge_cmaptypes(self):
         if 'cmaptypes' in self.top_A.content_dict or 'cmaptypes' in self.top_B.content_dict:
@@ -41,7 +44,11 @@ class Alchemistry():
             self.content_dict['cmaptypes'].union(self.top_B.content_dict['cmaptypes'])
 
     def _add_dummy_atomtypes(self):
-        self.content_dict['atomtypes'].append(Dummy_Atomtype())
+        if 'atomtypes' in self.content_dict:
+            self.content_dict['atomtypes'].append(Dummy_Atomtype())
+        else:
+            warnings.warn("No atomtypes directive found in the input file.\n" 
+                          "Dummy atomtype added: \n{}".format(Dummy_Atomtype().to_str()), Warning)
 
     def _create_moleculetype(self):
         assert self.top_A.content_dict['moleculetype'].nrexcl == self.top_B.content_dict['moleculetype'].nrexcl
@@ -57,6 +64,9 @@ class Alchemistry():
     def _merge_atoms(self):
         self.top_A_id_map = {}
         self.top_B_id_map = {}
+
+        # The index to be skipped
+        skip_state_B = []
 
         field = Atoms()
         self.content_dict['atoms'] = field
@@ -88,7 +98,11 @@ class Alchemistry():
                         field.append(new_atom)
                         self.top_A_id_map[atom_A.nr] = current_atom
                     else:
-                        top_B_idx += 1
+                        # Only increment the number when the atom B is not skipped previously
+                        if atom_B_nr in skip_state_B:
+                            pass
+                        else:
+                            top_B_idx += 1
                         new_atom.typeB = self.top_B.content_dict['atoms'].atom_idx2attr(atom_B_nr, 'type')
                         new_atom.massB = self.top_B.content_dict['atoms'].atom_idx2attr(atom_B_nr, 'mass')
                         new_atom.chargeB = self.top_B.content_dict['atoms'].atom_idx2attr(atom_B_nr, 'charge')
@@ -97,18 +111,21 @@ class Alchemistry():
                         self.top_A_id_map[atom_A.nr] = current_atom
                         self.top_B_id_map[atom_B_nr] = current_atom
                 elif atom_B and atom_B.nr in self.top_B_list:
-                    assert self.top_A_list[self.top_B_list.index(top_B_idx+1)] is None
-                    current_atom += 1
-                    top_B_idx += 1
-                    new_atom = copy.copy(atom_B)
-                    new_atom.cgnr = new_atom.nr = current_atom
-                    new_atom.typeB = new_atom.type
-                    new_atom.massB = new_atom.mass
-                    new_atom.chargeB = new_atom.charge
-                    new_atom.type = 'DUM'
-                    new_atom.charge = 0.0
-                    field.append(new_atom)
-                    self.top_B_id_map[atom_B.nr] = current_atom
+                    if self.top_A_list[self.top_B_list.index(top_B_idx+1)] is None:
+                        current_atom += 1
+                        top_B_idx += 1
+                        new_atom = copy.copy(atom_B)
+                        new_atom.cgnr = new_atom.nr = current_atom
+                        new_atom.typeB = new_atom.type
+                        new_atom.massB = new_atom.mass
+                        new_atom.chargeB = new_atom.charge
+                        new_atom.type = 'DUM'
+                        new_atom.charge = 0.0
+                        field.append(new_atom)
+                        self.top_B_id_map[atom_B.nr] = current_atom
+                    else:
+                        top_B_idx += 1
+                        skip_state_B.append(top_B_idx)
             else:
                 current_atom += 1
                 new_atom = copy.copy(atom_A)
