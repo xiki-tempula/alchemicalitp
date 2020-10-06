@@ -129,3 +129,12 @@ def test_writetop(urea):
     assert topology.content_dict['defaults'] == test_result.content_dict['defaults']
     assert topology.content_dict['atomtypes'] == test_result.content_dict['atomtypes']
     os.remove(resource_filename(__name__, 'test.top'))
+
+def test_cmap_IO():
+    topology = alchemicalitp.top.Topology(
+        filename=resource_filename(__name__, 'cmap/state_A.top'))
+    topology.write(resource_filename(__name__, 'test.top'), format='top')
+    new = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'test.top'))
+    assert len(topology.content_dict['cmaptypes'].content[0].data) == len(
+        new.content_dict['cmaptypes'].content[0].data)
+    os.remove(resource_filename(__name__, 'test.top'))

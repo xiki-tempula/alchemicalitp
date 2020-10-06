@@ -8,9 +8,9 @@ import numpy as np
 class EntryBase():
     def __deepcopy__(self, memo):
         return copy.copy(self)
-    def add_coul0(self):
+    def add_coul0(self): # pragma: no cover
         pass
-    def intermediate_coul(self, lam):
+    def intermediate_coul(self, lam): # pragma: no cover
         pass
 
     def to_stateB(self):
@@ -25,7 +25,7 @@ class Comment(EntryBase):
         return '; ' + self.comment
     def __getattr__(self, item):
         return None
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         return self.comment
 
     def update_idx(self, mapping, sort=True):
@@ -67,7 +67,7 @@ class Atomtype(EntryBase):
         else:
             return False
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         return str((self.name, self.at_num, self.mass, self.charge, self.ptype, self.sigma, self.epsilon))
 
 class Cmap(EntryBase):
@@ -88,7 +88,7 @@ class Cmap(EntryBase):
             return '{} ; {}'.format(name + '\\\n' + data, self.comment)
         else:
             return '{} ; {}'.format(name + self.data, self.comment)
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         name = '{: <7} {: <7} {: <7} {: <7} {: <7}'.format(*self.names)
         func = '{: <6} {: <6} {: <6}'.format(self.func, self.rows, self.cols)
         return str(name, func)
