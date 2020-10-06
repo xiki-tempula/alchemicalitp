@@ -252,3 +252,16 @@ def test_cmap():
         filename=resource_filename(__name__, 'cmap/state_C.top'))
     with pytest.raises(NotImplementedError):
         state = state_A.add_stateB(state_C, [None, ], [219, ])
+
+def test_alchem():
+    # Test the case charlie's case where the state B has a atom
+    # Which is later in the index
+    state_A = alchemicalitp.top.Topology(
+        filename=resource_filename(__name__, 'example/lig-6m.itp'))
+    state_B = alchemicalitp.top.Topology(
+        filename=resource_filename(__name__, 'example/lig-6f.itp'))
+    new = state_A.add_stateB(state_B, [22, 23, 46, 32, 34, 36, 38, 39, 40],
+                             [None, None, 25, None, None, None, None, None,
+                              None, ])
+    assert new.content_dict['atoms'][45].type == 'nh'
+    assert new.content_dict['atoms'][45].typeB == 'f'
