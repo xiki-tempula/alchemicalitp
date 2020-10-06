@@ -138,3 +138,9 @@ def test_cmap_IO():
     assert len(topology.content_dict['cmaptypes'].content[0].data) == len(
         new.content_dict['cmaptypes'].content[0].data)
     os.remove(resource_filename(__name__, 'test.top'))
+    topology.write(resource_filename(__name__, 'test.itp'), format='itp')
+    new = alchemicalitp.top.Topology(
+        filename=resource_filename(__name__, 'test.itp'))
+    assert len(topology.content_dict['cmap'].content) == len(
+        new.content_dict['cmap'].content)
+

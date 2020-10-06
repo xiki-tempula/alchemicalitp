@@ -100,24 +100,24 @@ class itpWriter():
             f.write(self.top.content_dict['cmaptypes'].to_str())
             f.write('\n')
 
-class rtpWriter():
-    def __init__(self, topology, f):
-        for comment in topology.content_list:
-            if isinstance(comment, Comment):
-                f.write(comment.to_str() + '\n')
-        f.write('\n')
-        f.write('[ {} ]\n'.format(topology.name))
-
-        f.write(topology.content_dict['atoms'].to_str())
-        f.write('\n')
-        f.write(topology.content_dict['bonds'].to_str())
-        f.write('\n')
-        f.write(topology.content_dict['impropers'].to_str())
-        f.write('\n')
-
-class atpWriter():
-    def __init__(self, topology, f):
-        atomtypes = topology.content_dict['atomtypes']
-        for atom in atomtypes:
-            if not isinstance(atom, Comment):
-                f.write('{: <15} {: <16}\n'.format(atom._name, atom._mass))
+# class rtpWriter():
+#     def __init__(self, topology, f):
+#         for comment in topology.content_list:
+#             if isinstance(comment, Comment):
+#                 f.write(comment.to_str() + '\n')
+#         f.write('\n')
+#         f.write('[ {} ]\n'.format(topology.name))
+#
+#         f.write(topology.content_dict['atoms'].to_str())
+#         f.write('\n')
+#         f.write(topology.content_dict['bonds'].to_str())
+#         f.write('\n')
+#         f.write(topology.content_dict['impropers'].to_str())
+#         f.write('\n')
+#
+# class atpWriter():
+#     def __init__(self, topology, f):
+#         atomtypes = topology.content_dict['atomtypes']
+#         for atom in atomtypes:
+#             if not isinstance(atom, Comment):
+#                 f.write('{: <15} {: <16}\n'.format(atom._name, atom._mass))

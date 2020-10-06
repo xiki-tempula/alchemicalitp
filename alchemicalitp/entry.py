@@ -311,12 +311,12 @@ class Bond(Pair):
     def __repr__(self): # pragma: no cover
         return str((self.i, self.j, self.func, self.b0, self.kb))
 
-    # def create_dummy(self):
-    #     dummy = copy.copy(self)
-    #     dummy.comment = 'Dummy'
-    #     if dummy.func == 1:
-    #         dummy.kb = '0.0'
-    #     return dummy
+    def create_dummy(self):
+        dummy = copy.copy(self)
+        dummy.comment = 'Dummy'
+        if dummy.func == 1:
+            dummy.kb = '0.0'
+        return dummy
 
     def to_stateB(self):
         if self.b0B != '':
@@ -418,12 +418,12 @@ class Angle(EntryBase):
         else:
             return False
 
-    # def create_dummy(self):
-    #     dummy = copy.copy(self)
-    #     dummy.comment = 'Dummy'
-    #     if dummy.func == 1:
-    #         dummy.cth = '0.0'
-    #     return dummy
+    def create_dummy(self):
+        dummy = copy.copy(self)
+        dummy.comment = 'Dummy'
+        if dummy.func == 1:
+            dummy.cth = '0.0'
+        return dummy
 
     def to_stateB(self):
         if self.th0B != '':
@@ -596,12 +596,12 @@ class Dihedral(EntryBase):
         else:
             return False
 
-    # def create_dummy(self):
-    #     dummy = copy.copy(self)
-    #     dummy.comment = 'Dummy'
-    #     if dummy.func in [1, 4, 9]:
-    #         dummy.kd = '0.0'
-    #     return dummy
+    def create_dummy(self):
+        dummy = copy.copy(self)
+        dummy.comment = 'Dummy'
+        if dummy.func in [1, 4, 9]:
+            dummy.kd = '0.0'
+        return dummy
 
     def to_stateB(self):
         if self.func in [1, 4, 9]:

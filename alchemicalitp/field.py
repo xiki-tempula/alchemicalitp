@@ -15,12 +15,12 @@ class Field():
     def append(self, line):
         self.content.append(line)
 
-    def uniqle(self):
-        content = []
-        for line in self.content:
-            if not line in content:
-                content.append(line)
-        self.content = content
+    # def uniqle(self):
+    #     content = []
+    #     for line in self.content:
+    #         if not line in content:
+    #             content.append(line)
+    #     self.content = content
 
     def __iter__(self):
         return self.content.__iter__()
@@ -52,12 +52,12 @@ class Field():
         newone.content = copy.deepcopy(self.content)
         return newone
 
-    def atom_reindex(self):
-        '''Alter the atom index to make sure that it can be used in rtp file'''
-        for index, line in enumerate(self.content):
-            if not isinstance(line, Comment):
-                line.mass = index
-                line.nr = ''
+    # def atom_reindex(self):
+    #     '''Alter the atom index to make sure that it can be used in rtp file'''
+    #     for index, line in enumerate(self.content):
+    #         if not isinstance(line, Comment):
+    #             line.mass = index
+    #             line.nr = ''
 
     def add_comment(self, line):
         self.content.append(Comment(line[1:]))
