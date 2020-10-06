@@ -11,7 +11,7 @@ from tempfile import NamedTemporaryFile
 
 @pytest.fixture
 def urea():
-    return alchemicalitp.top.Topology(filename=resource_filename(__name__, 'urea.itp'))
+    return alchemicalitp.top.Topology(filename=resource_filename(__name__, 'example/urea.itp'))
 
 def test_defaults(urea):
     topology = urea
@@ -122,14 +122,14 @@ def test_writeitp(urea):
     assert topology.content_dict['dihedrals'] == test_result.content_dict['dihedrals']
     os.remove(resource_filename(__name__, 'test.itp'))
 
-    topology.write(resource_filename(__name__, 'test'), format = 'itp')
-    test_result = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'test.itp'))
+    topology.write(format = 'itp')
+    test_result = alchemicalitp.top.Topology(filename='urea.itp')
     assert topology.content_dict['atoms'] == test_result.content_dict['atoms']
     assert topology.content_dict['bonds'] == test_result.content_dict['bonds']
     assert topology.content_dict['pairs'] == test_result.content_dict['pairs']
     assert topology.content_dict['angles'] == test_result.content_dict['angles']
     assert topology.content_dict['dihedrals'] == test_result.content_dict['dihedrals']
-    os.remove(resource_filename(__name__, 'test.itp'))
+    os.remove('urea.itp')
 
 def test_writetop(urea):
     topology = urea
@@ -139,11 +139,11 @@ def test_writetop(urea):
     assert topology.content_dict['atomtypes'] == test_result.content_dict['atomtypes']
     os.remove(resource_filename(__name__, 'test.top'))
 
-    topology.write(resource_filename(__name__, 'test'), format='top')
-    test_result = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'test.top'))
+    topology.write(format='top')
+    test_result = alchemicalitp.top.Topology(filename='urea.top')
     assert topology.content_dict['defaults'] == test_result.content_dict['defaults']
     assert topology.content_dict['atomtypes'] == test_result.content_dict['atomtypes']
-    os.remove(resource_filename(__name__, 'test.top'))
+    os.remove('urea.top')
 
 def test_cmap_IO():
     topology = alchemicalitp.top.Topology(
