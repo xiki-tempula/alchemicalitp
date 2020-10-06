@@ -308,15 +308,15 @@ class Bond(Pair):
         else:
             return False
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         return str((self.i, self.j, self.func, self.b0, self.kb))
 
-    def create_dummy(self):
-        dummy = copy.copy(self)
-        dummy.comment = 'Dummy'
-        if dummy.func == 1:
-            dummy.kb = '0.0'
-        return dummy
+    # def create_dummy(self):
+    #     dummy = copy.copy(self)
+    #     dummy.comment = 'Dummy'
+    #     if dummy.func == 1:
+    #         dummy.kb = '0.0'
+    #     return dummy
 
     def to_stateB(self):
         if self.b0B != '':
@@ -363,7 +363,7 @@ class Angle(EntryBase):
             return True
         else:
             return False
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         return str((self.i, self.j, self.k, self.func, self.th0, self.cth))
 
     def update_idx(self, mapping, sort=True):
@@ -418,12 +418,12 @@ class Angle(EntryBase):
         else:
             return False
 
-    def create_dummy(self):
-        dummy = copy.copy(self)
-        dummy.comment = 'Dummy'
-        if dummy.func == 1:
-            dummy.cth = '0.0'
-        return dummy
+    # def create_dummy(self):
+    #     dummy = copy.copy(self)
+    #     dummy.comment = 'Dummy'
+    #     if dummy.func == 1:
+    #         dummy.cth = '0.0'
+    #     return dummy
 
     def to_stateB(self):
         if self.th0B != '':
@@ -500,7 +500,7 @@ class Dihedral(EntryBase):
                 self.C0B, self.C1B, self.C2B, self.C3B, self.C4B, self.C5B,
                 self.comment)
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         if self.func in [1, 4, 9]:
             return str((self.i, self.j, self.k, self.l, self.func, self.phase, self.kd, self.pn))
         elif self.func == 3:
@@ -596,12 +596,12 @@ class Dihedral(EntryBase):
         else:
             return False
 
-    def create_dummy(self):
-        dummy = copy.copy(self)
-        dummy.comment = 'Dummy'
-        if dummy.func in [1, 4, 9]:
-            dummy.kd = '0.0'
-        return dummy
+    # def create_dummy(self):
+    #     dummy = copy.copy(self)
+    #     dummy.comment = 'Dummy'
+    #     if dummy.func in [1, 4, 9]:
+    #         dummy.kd = '0.0'
+    #     return dummy
 
     def to_stateB(self):
         if self.func in [1, 4, 9]:
