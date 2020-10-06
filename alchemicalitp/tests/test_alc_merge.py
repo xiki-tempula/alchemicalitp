@@ -11,14 +11,14 @@ from pkg_resources import resource_filename
 def dum_to():
     glu = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'GLU.top'))
     glh = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'GLH.top'))
-    glu2glh = glu.add_stateB(glh, [19, None,], [19, 20,])
+    glu2glh, mapping = glu.add_stateB(glh, [19, None,], [19, 20,])
     return glu, glh, glu2glh
 
 @pytest.fixture
 def to_dum():
     glu = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'GLU.top'))
     glh = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'GLH.top'))
-    glh2glu = glh.add_stateB(glu, [19, 20, ], [19, None, ])
+    glh2glu, mapping = glh.add_stateB(glu, [19, 20, ], [19, None, ])
     return glu, glh, glh2glu
 
 def test_defaults(dum_to):
@@ -239,7 +239,7 @@ def test_cmap():
         filename=resource_filename(__name__, 'cmap/state_A.top'))
     state_B = alchemicalitp.top.Topology(
         filename=resource_filename(__name__, 'cmap/state_B.top'))
-    state = state_A.add_stateB(state_B, [None,], [219,])
+    state, mapping = state_A.add_stateB(state_B, [None,], [219,])
     print(len(state.content_dict['cmaptypes'].content[0].data))
     assert len(state.content_dict['cmaptypes'].content[0].data) == len(state_A.content_dict['cmaptypes'].content[0].data)
     assert len(state.content_dict['cmaptypes'].content[0].data) == len(
@@ -251,7 +251,7 @@ def test_cmap():
     state_C = alchemicalitp.top.Topology(
         filename=resource_filename(__name__, 'cmap/state_C.top'))
     with pytest.raises(NotImplementedError):
-        state = state_A.add_stateB(state_C, [None, ], [219, ])
+        state, mapping = state_A.add_stateB(state_C, [None, ], [219, ])
 
 def test_alchem():
     # Test the case charlie's case where the state B has a atom
@@ -260,7 +260,7 @@ def test_alchem():
         filename=resource_filename(__name__, 'example/lig-6m.itp'))
     state_B = alchemicalitp.top.Topology(
         filename=resource_filename(__name__, 'example/lig-6f.itp'))
-    new = state_A.add_stateB(state_B, [22, 23, 46, 32, 34, 36, 38, 39, 40],
+    new, mapping = state_A.add_stateB(state_B, [22, 23, 46, 32, 34, 36, 38, 39, 40],
                              [None, None, 25, None, None, None, None, None,
                               None, ])
     assert new.content_dict['atoms'][45].type == 'nh'

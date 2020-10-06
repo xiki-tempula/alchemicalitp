@@ -83,7 +83,8 @@ class Topology():
 
     def add_stateB(self, top_B, top_A_list, top_B_list):
         alchemistry = Alchemistry(self, top_B, top_A_list, top_B_list)
-        return Topology(content_dict=alchemistry.content_dict, name=alchemistry.name)
+        top_A_id_map, top_B_id_map = alchemistry.top_A_id_map, alchemistry.top_B_id_map
+        return Topology(content_dict=alchemistry.content_dict, name=alchemistry.name), (top_A_id_map, top_B_id_map)
 
 
     # def convert_ff(self):
