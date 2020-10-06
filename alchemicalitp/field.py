@@ -126,7 +126,7 @@ class Default(Field):
         else:
             return False
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         return str((self.nbfunc, self.comb_rule, self.gen_pairs, self.fudgeLJ, self.fudgeQQ))
 
     def add_comment(self, line):
@@ -156,7 +156,7 @@ class Moleculetype(Field):
         output.append(self.name + ' ' + self.nrexcl)
         return '\n'.join(output)
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         return str((self.name, self.nrexcl))
 
 class Atomtypes(Field):
