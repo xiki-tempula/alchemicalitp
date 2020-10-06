@@ -225,7 +225,7 @@ class Pair(EntryBase):
     def __contains__(self, idx):
         return idx in [self.i, self.j]
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         return str((self.i, self.j, self.func,))
 
     def equal_idx(self, other):
