@@ -86,7 +86,7 @@ class Cmap(EntryBase):
             data = [' '.join(['{: <16}'.format(num) for num in line]) for line in data]
             data = '\\\n'.join(data)
             return '{} ; {}'.format(name + '\\\n' + data, self.comment)
-        else:
+        else: # pragma: no cover
             return '{} ; {}'.format(name + self.data, self.comment)
     def __repr__(self): # pragma: no cover
         name = '{: <7} {: <7} {: <7} {: <7} {: <7}'.format(*self.names)

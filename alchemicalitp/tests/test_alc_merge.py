@@ -235,10 +235,20 @@ def test_zero2dihedral(dum_to):
             dihedral.phaseB, dihedral.kdB, dihedral.pnB) == (15, 14, 17, 18, 1, 0.0, '0.0', 1, 0.0, '-6.0489343', 1)
 
 def test_cmap():
-    state_A = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'cmap/state_A.top'))
-    state_B = alchemicalitp.top.Topology(filename=resource_filename(__name__, 'cmap/state_B.top'))
+    state_A = alchemicalitp.top.Topology(
+        filename=resource_filename(__name__, 'cmap/state_A.top'))
+    state_B = alchemicalitp.top.Topology(
+        filename=resource_filename(__name__, 'cmap/state_B.top'))
     state = state_A.add_stateB(state_B, [None,], [219,])
     print(len(state.content_dict['cmaptypes'].content[0].data))
     assert len(state.content_dict['cmaptypes'].content[0].data) == len(state_A.content_dict['cmaptypes'].content[0].data)
     assert len(state.content_dict['cmaptypes'].content[0].data) == len(
         state_B.content_dict['cmaptypes'].content[0].data)
+
+    #A number in state_C cmap is changed so that it is different
+    state_A = alchemicalitp.top.Topology(
+        filename=resource_filename(__name__, 'cmap/state_A.top'))
+    state_C = alchemicalitp.top.Topology(
+        filename=resource_filename(__name__, 'cmap/state_C.top'))
+    with pytest.raises(NotImplementedError):
+        state = state_A.add_stateB(state_C, [None, ], [219, ])

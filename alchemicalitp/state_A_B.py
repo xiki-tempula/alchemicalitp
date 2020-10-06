@@ -39,9 +39,15 @@ class Alchemistry():
             self.content_dict['atomtypes'].union(self.top_B.content_dict['atomtypes'])
 
     def _merge_cmaptypes(self):
-        if 'cmaptypes' in self.top_A.content_dict or 'cmaptypes' in self.top_B.content_dict:
-            self.content_dict['cmaptypes'] = copy.copy(self.top_A.content_dict['cmaptypes'])
-            self.content_dict['cmaptypes'].union(self.top_B.content_dict['cmaptypes'])
+        if 'cmaptypes' in self.top_A.content_dict and 'cmaptypes' in self.top_B.content_dict:
+            if self.top_A.content_dict['cmaptypes'] == self.top_B.content_dict['cmaptypes']:
+                self.content_dict['cmaptypes'] = self.top_B.content_dict['cmaptypes']
+            else:
+                raise NotImplementedError('Alchmcial change of CAMP not implemented yet.')
+        elif not ('cmaptypes' in self.top_A.content_dict or 'cmaptypes' in self.top_B.content_dict):
+            pass
+        else:
+            raise NameError('CMAP directive has to be present in both topology')
 
     def _add_dummy_atomtypes(self):
         if 'atomtypes' in self.content_dict:
