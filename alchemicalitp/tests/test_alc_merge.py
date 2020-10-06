@@ -27,6 +27,30 @@ def test_defaults(dum_to):
     assert (defaults.nbfunc, defaults.comb_rule, defaults.gen_pairs, defaults.fudgeLJ, defaults.fudgeQQ) == (
         '1', '2', 'yes', '0.5', '0.83333333')
 
+def test_mapping_dum_to(dum_to):
+    glu, glh, glu2glh, mapping = dum_to
+    # Test if full
+    mapping1, mapping2 = mapping
+    for key in mapping2:
+        assert mapping2[key] == key
+    for key in mapping1:
+        if key < 20:
+            assert mapping1[key] == key
+        else:
+            assert mapping1[key] == key + 1
+
+def test_mapping_to_dum(to_dum):
+    glu, glh, glh2glu, mapping = to_dum
+    # Test if full
+    mapping1, mapping2 = mapping
+    for key in mapping1:
+        assert mapping1[key] == key
+    for key in mapping2:
+        if key < 20:
+            assert mapping2[key] == key
+        else:
+            assert mapping2[key] == key + 1
+
 def test_atomtypes(dum_to):
     glu, glh, glu2glh, mapping = dum_to
     # Test total number
@@ -52,7 +76,7 @@ def test_dum2_atom(dum_to):
         20, 'DUM', 2, 'GLH', 'HE2', 20, 0.0, '1.008000', 'HO', '0.40610000', '1.008000')
 
 def test_2dum_atom(to_dum):
-    glu, glh, glh2glu, mapping = dum_to
+    glu, glh, glh2glu, mapping = to_dum
     atom = glh2glu.content_dict['atoms'][19]
     assert (atom.nr, atom.type, atom.resnr, atom.residue, atom.atom, atom.cgnr, atom.charge, atom.mass,
             atom.typeB, atom.chargeB, atom.massB) == (
@@ -65,14 +89,14 @@ def test_unchanged_atom(dum_to):
 
 def test_unchanged_bonds(to_dum):
     # test that bonds are unchanged
-    glu, glh, glh2glu, mapping = dum_to
+    glu, glh, glh2glu, mapping = to_dum
     # Test empty pairs
     assert glh2glu.content_dict['bonds'][1] == glu.content_dict['bonds'][1]
     assert glh2glu.content_dict['bonds'][1] == glh.content_dict['bonds'][1]
 
 def test_changed_bonds(to_dum):
     # test that bonds are changed
-    glu, glh, glh2glu, mapping = dum_to
+    glu, glh, glh2glu, mapping = to_dum
     bond = glh.content_dict['bonds'][18]
     assert (bond.i, bond.j, bond.func, bond.b0, bond.kb, bond.b0B, bond.kbB) == (
         17, 19, 1, '0.13640', '376560.000000', '', '')
@@ -85,7 +109,7 @@ def test_changed_bonds(to_dum):
 
 def test_2dum_bonds(to_dum):
     # test that bonds change to dummy
-    glu, glh, glh2glu, mapping = dum_to
+    glu, glh, glh2glu, mapping = to_dum
     bond = glh.content_dict['bonds'][19]
     assert (bond.i, bond.j, bond.func, bond.b0, bond.kb, bond.b0B, bond.kbB) == (
         19, 20, 1, '0.09600', '462750.400000', '', '')
@@ -112,14 +136,14 @@ def test_unchanged_pairs(to_dum):
 
 def test_unchanged_pairs(to_dum):
     # test that bonds are unchanged
-    glu, glh, glh2glu, mapping = dum_to
+    glu, glh, glh2glu, mapping = to_dum
     # Test empty pairs
     assert glh2glu.content_dict['pairs'][1] == glu.content_dict['pairs'][1]
     assert glh2glu.content_dict['pairs'][1] == glh.content_dict['pairs'][1]
 
 def test_2dum_pairs(to_dum):
     # test that bonds are unchanged
-    glu, glh, glh2glu, mapping = dum_to
+    glu, glh, glh2glu, mapping = to_dum
     # Test empty pairs
     assert glh2glu.content_dict['pairs'][43] == glh.content_dict['pairs'][43]
 
@@ -131,14 +155,14 @@ def test_dum2_pairs(dum_to):
 
 def test_unchanged_angles(to_dum):
     # test that bonds are unchanged
-    glu, glh, glh2glu, mapping = dum_to
+    glu, glh, glh2glu, mapping = to_dum
     # Test empty pairs
     assert glh2glu.content_dict['angles'][1] == glu.content_dict['angles'][1]
     assert glh2glu.content_dict['angles'][1] == glh.content_dict['angles'][1]
 
 def test_changed_angles(to_dum):
     # test that bonds are changed
-    glu, glh, glh2glu, mapping = dum_to
+    glu, glh, glh2glu, mapping = to_dum
     angle = glh.content_dict['angles'][9]
     assert (angle.i, angle.j, angle.k, angle.func, angle.th0, angle.cth, angle.th0B, angle.cthB) == (
         5, 7, 9, 1, '119.6100511', '411.090552', '', '')
@@ -151,7 +175,7 @@ def test_changed_angles(to_dum):
 
 def test_2dum_angles(to_dum):
     # test that bonds are changed
-    glu, glh, glh2glu, mapping = dum_to
+    glu, glh, glh2glu, mapping = to_dum
     angle = glh.content_dict['angles'][34]
     assert (angle.i, angle.j, angle.k, angle.func, angle.th0, angle.cth, angle.th0B, angle.cthB) == (
         17, 19, 20, 1, '113.0000484', '418.400000', '', '')
@@ -171,14 +195,14 @@ def test_dum2_angles(dum_to):
 
 def test_unchanged_dihedrals(to_dum):
     # test that bonds are unchanged
-    glu, glh, glh2glu, mapping = dum_to
+    glu, glh, glh2glu, mapping = to_dum
     # Test empty pairs
     assert glh2glu.content_dict['dihedrals'][1] == glu.content_dict['dihedrals'][1]
     assert glh2glu.content_dict['dihedrals'][1] == glh.content_dict['dihedrals'][1]
 
 def test_changed_dihedrals(to_dum):
     # test that bonds are changed
-    glu, glh, glh2glu, mapping = dum_to
+    glu, glh, glh2glu, mapping = to_dum
     dihedral = glh.content_dict['dihedrals'][12]
     assert (dihedral.i, dihedral.j, dihedral.k, dihedral.l, dihedral.func, dihedral.phase, dihedral.kd, dihedral.pn,
             dihedral.phaseB, dihedral.kdB, dihedral.pnB) ==(5, 7, 9, 10, 1, 0.0, '1.6182875', 2, '', '', '')
@@ -192,7 +216,7 @@ def test_changed_dihedrals(to_dum):
 def test_dihedral2dum(to_dum):
     # test the dihedral exits in one top but doesn't exist in the next due to the absence of the dummy atom
     # Thus, to ensure that the dummy atom stay in its place, the dihedral needs to be enforced
-    glu, glh, glh2glu, mapping = dum_to
+    glu, glh, glh2glu, mapping = to_dum
     dihedral = glh.content_dict['dihedrals'][75]
     assert (dihedral.i, dihedral.j, dihedral.k, dihedral.l, dihedral.func, dihedral.phase, dihedral.kd, dihedral.pn,
             dihedral.phaseB, dihedral.kdB, dihedral.pnB) ==(14, 17, 19, 20, 1, 180.0000771, '10.1273302', 2, '', '', '')
@@ -215,7 +239,7 @@ def test_dum2dihedral(dum_to):
 def test_dihedral2zero(to_dum):
     # The dihedral in the first is in absence in the second top due to topology difference
     # should be set to zero in this case
-    glu, glh, glh2glu, mapping = dum_to
+    glu, glh, glh2glu, mapping = to_dum
     dihedral = glh.content_dict['dihedrals'][78]
     assert (dihedral.i, dihedral.j, dihedral.k, dihedral.l, dihedral.func, dihedral.phase, dihedral.kd, dihedral.pn,
             dihedral.phaseB, dihedral.kdB, dihedral.pnB) ==(15, 14, 17, 18, 1, 0.0, '-0.5486898', 2, '', '', '')
@@ -265,3 +289,11 @@ def test_alchem():
                               None, ])
     assert new.content_dict['atoms'][45].type == 'nh'
     assert new.content_dict['atoms'][45].typeB == 'f'
+
+    mapping1, mapping2 = mapping
+    for key in mapping1:
+        assert mapping1[key] == key
+    assert mapping1[22] == 24
+    assert mapping1[26] == 27
+    assert mapping1[31] == 33
+    assert mapping1[25] == 46
