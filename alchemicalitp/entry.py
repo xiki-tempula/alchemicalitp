@@ -152,7 +152,7 @@ class Atom(EntryBase):
                                                                                            self.atom, self.cgnr,
                                                                                            self.charge, self.mass,
                                                                                            self.comment)
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         return str((self.nr, self.type, self.resnr, self.residue, self.atom, self.cgnr, self.charge, self.mass))
 
     def add_coul0(self):
@@ -173,17 +173,6 @@ class Atom(EntryBase):
         if self.chargeB != '':
             self.charge = self.chargeB
             self.chargeB = ''
-
-    def intermediate_coul(self, lam):
-        if self.typeB != '':
-            assert self.typeB == self.type
-            self.typeB = ''
-        if self.massB != '':
-            assert self.massB == self.mass
-            self.massB = ''
-        self.charge = float(self.charge) + (float(self.chargeB)-float(self.charge))*lam
-        self.charge = '{:.6f}'.format(self.charge)
-        self.chargeB = ''
 
     def str_charge(self):
         if type(self.charge) == float:
