@@ -293,7 +293,7 @@ def test_alchem():
     mapping1, mapping2 = mapping
     for key in mapping1:
         assert mapping1[key] == key
-    assert mapping1[22] == 24
-    assert mapping1[26] == 27
-    assert mapping1[31] == 33
-    assert mapping1[25] == 46
+    assert mapping2[22] == 24
+    assert mapping2[26] == 27
+    assert mapping2[31] == 33
+    assert mapping2[25] == 46
