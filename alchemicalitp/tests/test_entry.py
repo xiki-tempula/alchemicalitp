@@ -23,5 +23,13 @@ def test_pair(glu):
 
 
 
-def test_contain(glu):
-    pass
+def test_angle(glu):
+    angle = glu.content_dict['angles'].content[2]
+    assert angle.idx_in([1, 10]) == False
+
+def test_dihedral(glu):
+    assert glu.content_dict['dihedrals'].content[2] != \
+           glu.content_dict['dihedrals'].content[3]
+    assert 11 in glu.content_dict['dihedrals'].content[2]
+    assert glu.content_dict['dihedrals'].content[93] == \
+           glu.content_dict['dihedrals'].content[93]
