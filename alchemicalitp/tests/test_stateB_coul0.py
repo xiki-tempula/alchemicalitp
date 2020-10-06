@@ -4,7 +4,7 @@ from pkg_resources import resource_filename
 import os
 @pytest.fixture
 def urea():
-    return alchemicalitp.top.Topology(filename=resource_filename(__name__, 'urea.itp'))
+    return alchemicalitp.top.Topology(filename=resource_filename(__name__, 'example/urea.itp'))
 
 def test_stateB_coul0(urea):
     '''Test if add the same state B but only change the charge is fine'''
