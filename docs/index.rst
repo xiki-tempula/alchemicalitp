@@ -6,11 +6,14 @@
 Welcome to AlchemicalITP's documentation!
 =========================================================
 
+**AlchemicalITP** is a library for modifying the Gromacs topology file for
+performing alchemical transformations.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   getting_started
+   FEP
    api
 
 
