@@ -23,6 +23,7 @@ Atoms
 -----
 
 The atoms section will be treated differently based on the state of state B.
+
  - If the atom is the same in state B, the state B will be left blank
  - If the mass, partial charge or atomtype is changed in state B, state B will
    be set up explicitly
@@ -33,6 +34,7 @@ Bonded interactions
 -------------------
 
 The *bonds*, *pairs*, *angles* and *dihedrals* are set up, such that:
+
  - if an interaction is the same in state A and state B, state B will be left
    blank
  - If an interaction is present in both state A and state B, state B will be

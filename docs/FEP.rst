@@ -117,16 +117,9 @@ progress.
 
 For Splitting the Transformation into Three Parts
 -------------------------------------------------
-Separate topologies can be generated for splitting the alchemical transformation
-into three parts (qon, vdw, qoff). ::
 
-    >>> top_A, top_B = new.split_coul()
-    >>> top_A.write('glh2glu.qoff_vdw.itp')
-    >>> top_B.write('glh2glu.vdw_qon.itp')
-
-Where the `glh2glu.qoff_vdw.itp` annihilates the partial charge of the atoms
-which will be dummy in state B and the `glh2glu.vdw_qon.itp` recharges the
-partial charge of the atoms which are dummy in state A.
+If both the growth and the annihilation of the atoms are required a
+:ref:`three-stages transformation <mdps>` might be useful.
 
 Validation of the Generated Topology
 ------------------------------------
