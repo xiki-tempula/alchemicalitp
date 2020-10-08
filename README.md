@@ -7,6 +7,18 @@ AlchemicalITP
 
 The Gromacs itp file parser and writer for multi-step alchemical transformation.
 
+Installing from source
+----------------------
+
+from source. Clone the source from GitHub with::
+
+    git clone https://github.com/alchemicalitp/alchemicalitp.git
+
+then do::
+
+    cd alchemicalitp
+    pip install .
+
 ### Copyright
 
 Copyright (c) 2020, Zhiyi Wu
