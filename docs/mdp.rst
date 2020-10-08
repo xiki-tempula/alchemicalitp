@@ -3,7 +3,7 @@
 Sequential Transformation
 =========================
 
-Atoms being annihilated
+Atoms being Annihilated
 -----------------------
 If the alchemical transformation only involves the growth **or** the annihilation
 of atoms (there are only dummy atoms on one side of the transformation). A
