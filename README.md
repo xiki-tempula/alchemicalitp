@@ -12,7 +12,7 @@ Installing from source
 
 from source. Clone the source from GitHub with::
 
-    git clone https://github.com/alchemicalitp/alchemicalitp.git
+    git clone https://github.com/xiki-tempula/alchemicalitp.git
 
 then do::
 
