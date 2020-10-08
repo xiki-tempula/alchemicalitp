@@ -45,7 +45,7 @@ Where a 0.1 spacing was used for coul-lambdas to change the partial charge and
 Growth of Atoms
 ---------------
 If the transformation is inverted and instead of annihilating an atom, an atom
-is being grown in the state B, such as the protonation of the glutamate. ::
+is being grown in state B, such as the protonation of the glutamate. ::
 
     >>> import alchemicalitp
     >>> from alchemicalitp.crd import merge_crd
@@ -61,7 +61,7 @@ is being grown in the state B, such as the protonation of the glutamate. ::
     >>> new.write('glu2glh.itp')
 
 
-The mdp files should be set up so that the hydorgne atom is recharged after
+The mdp files should be set up so that the hydrogen atom is recharged after
 the Van der Waals transformation. ::
 
     free-energy              = yes
@@ -91,12 +91,30 @@ Thus, separate topology files are needed for this three-steps transformation.::
     >>> top_A.write('glh2glu.qoff_vdw.itp')
     >>> top_B.write('glh2glu.vdw_qon.itp')
 
+Splitting the topology file means that an intermediate partial charge stage is
+introduced. By default, for the atoms that are present in both state A and
+state B, the partial charge of this intermediate state is the average of the
+partial charge from state A and state B.
+
+However, due to the absence of the charge from dummy atoms, the total charge
+of the molecule can be a non-integer value. Setting the *charge_conservation*
+to `'nearest'` will round the total charge to the nearest integer. ::
+
+    >>> top_A, top_B = new.split_coul(charge_conservation='nearest')
+    >>> top_A.write('glh2glu.qoff_vdw.itp')
+    >>> top_B.write('glh2glu.vdw_qon.itp')
+
+The rounding is done by first taking the average of the partial charge between
+state A and state B. The partial charge is then shifted in proportional to the
+absolute difference between state A and state B to make the total charge into
+an integer.
+
 Depending on which part needs more sampling, the step 2 can be bundled with
 either step 1 or step 3. For example, if the crystal structure of state A is
 known, the step 2 can be bundled to step 3 to achieve more sampling in the
 state B.
 
-Thus, the mdp for `glh2glu.qoff_vdw.itp` will cover the step 1. ::
+The mdp for `glh2glu.qoff_vdw.itp` will cover the step 1. ::
 
     free-energy              = yes
     separate-dhdl-file       = yes
@@ -150,4 +168,3 @@ Thus, the mdp for `glh2glu.vdw_qon.itp` will cover the step 3. ::
     fep-lambdas =  1.0 1.0 1.0 ... 1.0 1.0
     nstdhdl                  = 1000
     calc-lambda-neighbors    = -1
-

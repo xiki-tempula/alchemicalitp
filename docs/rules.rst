@@ -24,11 +24,11 @@ Atoms
 
 The atoms section will be treated differently based on the state of state B.
 
- - If the atom is the same in state B, the state B will be left blank
+ - If the atom is the same in state B, the state B will be left blank.
  - If the mass, partial charge or atomtype is changed in state B, state B will
-   be set up explicitly
+   be set up explicitly.
  - If the atom doesn't exist in state A or state B, a dummy atomtype with no
-   partial change and the same mass as the other state will be set up
+   partial change and the same mass as the other state will be set up.
 
 Bonded interactions
 -------------------
@@ -36,11 +36,11 @@ Bonded interactions
 The *bonds*, *pairs*, *angles* and *dihedrals* are set up, such that:
 
  - if an interaction is the same in state A and state B, state B will be left
-   blank
+   blank.
  - If an interaction is present in both state A and state B, state B will be
-   filled to reflect this change
+   filled to reflect this change.
  - If any interactions involve dummy atoms, the parameter when all the atoms
-   are present will be used
+   are present will be used.
 
 cmap
 ----
