@@ -92,8 +92,9 @@ class itpWriter():
             f.write('\n')
 
     def write_top(self, f):
-        f.write(self.top.content_dict['defaults'].to_str())
-        f.write('\n')
+        if 'defaults' in self.top.content_dict:
+            f.write(self.top.content_dict['defaults'].to_str())
+            f.write('\n')
         f.write(self.top.content_dict['atomtypes'].to_str())
         f.write('\n')
         if 'cmaptypes' in self.top.content_dict:
