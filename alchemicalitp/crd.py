@@ -5,6 +5,8 @@ import MDAnalysis as mda
 def merge_crd(crd1, crd2, mappings, filename=None):
     crd1 = mda.Universe(crd1)
     crd2 = mda.Universe(crd2)
+    crd1.atoms.ids = crd1.atoms.ix + 1
+    crd2.atoms.ids = crd2.atoms.ix + 1
     # The mapping contains two mapping files:
     # From molecule 1 to the merged molecule
     # And from molecule 2 to the merged molecule
