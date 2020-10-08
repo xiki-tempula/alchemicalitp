@@ -4,7 +4,7 @@ Generation of topology file for FEP calculations
 For an alchemical transformation from state A, which, for example, is protonated
 glutamate `GLH.top` to state B, deprotonated glutamate `GLU.top`. The topology
 file from protonated glutamate (state A) to deprotonated glutamate (state B)
-can be generated with the code. ::
+can be generated accoridng to the :ref:`rules <rules>` with the code. ::
 
     >>> import alchemicalitp
     >>> from alchemicalitp.crd import merge_crd
