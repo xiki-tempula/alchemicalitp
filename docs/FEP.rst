@@ -247,8 +247,8 @@ Compare the potential from the original topology (`original_A.log` and
      - -118.395
 
 The non-bonded interactions (*LJ (SR)* and *Coulomb (SR)*) should be the same.
-A very small deviation might be observed for bond (< 1 kj/mol), a medium
-deviation can be observed for the angle (< 10 kj/mol). Due to the flexibility
-of the dihedral potential a large deviation can be observed (<100 kj/mol).
+A very small deviation might be observed for *bond* (< 1 kj/mol), a medium
+deviation can be observed for the *angle* (< 10 kj/mol). Due to the flexibility
+of the *dihedral* potential, a large deviation can be observed (<100 kj/mol).
 However, as long as the energy difference do not exceed 1000 kj/mol, things
 should be fine.
