@@ -9,6 +9,7 @@ Certain rules are applied, when making this transformation.
 
 Atomtypes
 ---------
+
 When the atomtype is given, **AlchemicalITP** will try merge the *Atomtypes*
 from both topologies and remove the duplicate *Atomtypes*.
 
@@ -20,6 +21,7 @@ An additional atomtype *dum* will be added to represent dummy atom with no LJ. :
 
 Atoms
 -----
+
 The atoms section will be treated differently based on the state of state B.
  - If the atom is the same in state B, state B will be left blank
  - If the mass, partial charge or atomtype is changed in state B, state B will
@@ -29,6 +31,7 @@ The atoms section will be treated differently based on the state of state B.
 
 Bonded interactions
 -------------------
+
 The *bonds*, *pairs*, *angles* and *dihedrals* are set up, such that:
  - if an interaction is the same in state A and state B, state B will be left
    blank
@@ -39,6 +42,7 @@ The *bonds*, *pairs*, *angles* and *dihedrals* are set up, such that:
 
 cmap
 ----
+
 If cmap is present, it can be read and write as it is but alchemical
 transformation involving the cmap is not supported.
 
