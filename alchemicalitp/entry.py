@@ -143,14 +143,14 @@ class Atom(EntryBase):
     def to_str(self):
         # not printing the B states
         if self.typeB:
-            return '{: <5} {: <11} {: <7} {: <7} {: <7} {: <7} {: <12} {: <11} {: <11} {: <12} {: <11}; {}'.format(
-                self.nr, self.type, self.resnr, self.residue, self.atom, self.cgnr, self.charge, self.mass,
-                self.typeB, self.chargeB, self.massB, self.comment)
+            return '{: <5} {: <11} {: <7} {: <7} {: <7} {: <7} {:12.6f} {: <11} {: <11} {:12.6f} {: <11}; {}'.format(
+                self.nr, self.type, self.resnr, self.residue, self.atom, self.cgnr, float(self.charge), self.mass,
+                self.typeB, float(self.chargeB), self.massB, self.comment)
         else:
-            return '{: <5} {: <11} {: <7} {: <7} {: <7} {: <7} {: <12} {: <11}; {}'.format(self.nr, self.type,
+            return '{: <5} {: <11} {: <7} {: <7} {: <7} {: <7} {:12.6f} {: <11}; {}'.format(self.nr, self.type,
                                                                                            self.resnr, self.residue,
                                                                                            self.atom, self.cgnr,
-                                                                                           self.charge, self.mass,
+                                                                                           float(self.charge), self.mass,
                                                                                            self.comment)
     def __repr__(self): # pragma: no cover
         return str((self.nr, self.type, self.resnr, self.residue, self.atom, self.cgnr, self.charge, self.mass))
