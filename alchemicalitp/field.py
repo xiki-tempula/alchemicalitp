@@ -346,6 +346,16 @@ class Angles(Field):
             else:
                 i, j, k, func, th0, cth, th0B, cthB = line.strip().split()
                 self.content.append(Angle(i, j, k, func, th0=th0, cth=cth, th0B=th0B, cthB=cthB, comment=comment))
+        elif func == '5':
+            if len(line.strip().split()) == 4:
+                i, j, k, func, = line.strip().split()
+                self.content.append(Angle(i, j, k, func, C0='', C1='', C2='', C3='', comment=comment))
+            elif len(line.strip().split()) == 8:
+                i, j, k, func, C0, C1, C2, C3 = line.strip().split()
+                self.content.append(Angle(i, j, k, func, C0=C0, C1=C1, C2=C2, C3=C3, comment=comment))
+            else:
+                i, j, k, func, C0, C1, C2, C3, C0B, C1B, C2B, C3B = line.strip().split()
+                self.content.append(Angle(i, j, k, func, C0=C0, C1=C1, C2=C2, C3=C3, C0B=C0B, C1B=C1B, C2B=C2B, C3B=C3B, comment=comment))
         else:
             raise NotImplementedError('Function type {} not implemented yet'.format(func))
 
@@ -384,8 +394,24 @@ class Dihedrals(Field):
             else:
                 i, j, k, l, func, phase, kd, pn, phaseB, kdB, pnB = line.strip().split()
                 self.content.append(Dihedral(i, j, k, l, func, phase=phase, kd=kd, pn=pn, phaseB=phaseB, kdB=kdB, pnB=pnB, comment=comment))
+        elif func == '2':
+            if len(line.strip().split()) == 5:
+                i, j, k, l, func= line.strip().split()
+                self.content.append(Dihedral(i, j, k, l, func, phase="", kd='', pn="", comment=comment))
+            elif len(line.strip().split()) == 7:
+                i, j, k, l, func, C0, C1,  = line.strip().split()
+                self.content.append(Dihedral(i, j, k, l, func, C0=C0, C1=C1,comment=comment))
+            else:
+                i, j, k, l, func, C0, C1, C0B, C1B, = line.strip().split()
+                self.content.append(
+                    Dihedral(i, j, k, l, func, C0=C0, C1=C1,
+                             C0B=C0B, C1B=C1B,
+                             comment=comment))
         elif func == '3':
-            if len(line.strip().split()) == 11:
+            if len(line.strip().split()) == 5:
+                i, j, k, l, func= line.strip().split()
+                self.content.append(Dihedral(i, j, k, l, func, phase="", kd='', pn="", comment=comment))
+            elif len(line.strip().split()) == 11:
                 i, j, k, l, func, C0, C1, C2, C3, C4, C5 = line.strip().split()
                 self.content.append(Dihedral(i, j, k, l, func, C0=C0, C1=C1, C2=C2, C3=C3, C4=C4, C5=C5, comment=comment))
             else:

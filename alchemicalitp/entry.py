@@ -345,6 +345,21 @@ class Angle(EntryBase):
             else:
                 self.th0B = ''
                 self.cthB = ''
+        elif self.func == 5:
+            self.C0 = float(kwargs['C0'])
+            self.C1 = float(kwargs['C1'])
+            self.C2 = float(kwargs['C2'])
+            self.C3 = float(kwargs['C3'])
+            if 'C0B' in kwargs:
+                self.C0B = float(kwargs['C0B'])
+                self.C1B = float(kwargs['C1B'])
+                self.C2B = float(kwargs['C2B'])
+                self.C3B = float(kwargs['C3B'])
+            else:
+                self.C0B = ''
+                self.C1B = ''
+                self.C2B = ''
+                self.C3B = ''
         else:
             raise NotImplementedError('Function type {} not implemented yet'.format(self.func))
 
@@ -356,11 +371,27 @@ class Angle(EntryBase):
                                                                                                  self.th0, self.cth,
                                                                                                  self.th0B, self.cthB,
                                                                                                  self.comment)
+        elif self.func == 5:
+            return
+            '{: <7} {: <7} {: <7} {: <6} {: <10} {: <10} {: <10} {: <10} {: <10} {: <10} {: <10} {: <10} ; {}'.format(
+                self.i, self.j,
+                self.k, self.func,
+                self.C0, self.C1, self.C2, self.C3,
+                self.C0B, self.C1B, self.C2B, self.C3B,
+                self.comment)
     def __eq__(self, other):
-        if (self.i == other.i) and (self.j == other.j) and \
-                (self.func == other.func) and (self.k == other.k) and \
-                (self.th0 == other.th0) and (self.cth == other.cth):
-            return True
+        if (self.i == other.i) and (self.j == other.j) and (self.k == other.k) and \
+                (self.func == other.func):
+            if self.func == 1 and \
+                (self.th0 == other.th0) and (self.cth == other.cth) and \
+                (self.th0B == other.th0B) and (self.cthB == other.cthB):
+                return True
+            elif self.func == 5 and \
+                (self.C0 == other.C0) and (self.C1 == other.C1) and (self.C2 == other.C2) and (self.C3 == other.C3) and \
+                (self.C0B == other.C0B) and (self.C1B == other.C1B) and (self.C2B == other.C2B) and (self.C3B == other.C3B):
+                return True
+            else:
+                return False
         else:
             return False
     def __repr__(self): # pragma: no cover
@@ -414,6 +445,11 @@ class Angle(EntryBase):
             if new.func == 1:
                 new.th0B = other.th0
                 new.cthB = other.cth
+            elif new.func == 5:
+                new.C0B = other.C0
+                new.C1B = other.C1
+                new.C2B = other.C2
+                new.C3B = other.C3
             return new
         else:
             return False
@@ -423,15 +459,32 @@ class Angle(EntryBase):
         dummy.comment = 'Dummy'
         if dummy.func == 1:
             dummy.cth = '0.0'
+        elif dummy.func == 5:
+            dummy.C1 = '0.0'
+            dummy.C3 = '0.0'
         return dummy
 
     def to_stateB(self):
-        if self.th0B != '':
-            self.th0 = self.th0B
-            self.th0B = ''
-        if self.cthB != '':
-            self.cth = self.cthB
-            self.cthB = ''
+        if self.func == 1:
+            if self.th0B != '':
+                self.th0 = self.th0B
+                self.th0B = ''
+            if self.cthB != '':
+                self.cth = self.cthB
+                self.cthB = ''
+        elif self.func == 5:
+            if self.C0B != '':
+                self.C0 = self.C0B
+                self.C0B = ''
+            if self.C1B != '':
+                self.C1 = self.C1B
+                self.C1B = ''
+            if self.C2B != '':
+                self.C2 = self.C2B
+                self.C2B = ''
+            if self.C3B != '':
+                self.C3 = self.C3B
+                self.C3B = ''
 
 class Dihedral(EntryBase):
     def __init__(self, i, j, k, l, func, comment='', **kwargs):
@@ -461,6 +514,15 @@ class Dihedral(EntryBase):
                 self.phaseB = ''
                 self.kdB = ''
                 self.pnB = ''
+        elif self.func == 2:
+            self.C0 = float(kwargs['C0'])
+            self.C1 = float(kwargs['C1'])
+            if 'C0B' in kwargs:
+                self.C0B = float(kwargs['C0B'])
+                self.C1B = float(kwargs['C1B'])
+            else:
+                self.C0B = ''
+                self.C1B = ''
         elif self.func == 3:
             self.C0 = float(kwargs['C0'])
             self.C1 = float(kwargs['C1'])
@@ -493,6 +555,12 @@ class Dihedral(EntryBase):
                 self.phase, self.kd, self.pn,
                 self.phaseB, self.kdB, self.pnB,
                 self.comment)
+        elif self.func == 2:
+            return '{: <7} {: <7} {: <7} {: <7} {: <6} {: <14} {: <14} {: <14} {: <14}; {}'.format(
+                self.i, self.j, self.k, self.l, self.func,
+                self.C0, self.C1,
+                self.C0B, self.C1B,
+                self.comment)
         elif self.func == 3:
             return '{: <7} {: <7} {: <7} {: <7} {: <6} {: <14} {: <14} {: <14} {: <14} {: <14} {: <14} {: <14} {: <14} {: <14} {: <14} {: <14} {: <14}; {}'.format(
                 self.i, self.j, self.k, self.l, self.func,
@@ -503,6 +571,8 @@ class Dihedral(EntryBase):
     def __repr__(self): # pragma: no cover
         if self.func in [1, 4, 9]:
             return str((self.i, self.j, self.k, self.l, self.func, self.phase, self.kd, self.pn))
+        elif self.func == 2:
+            return str((self.i, self.j, self.k, self.l, self.func, self.C0, self.C1,))
         elif self.func == 3:
             return str((self.i, self.j, self.k, self.l, self.func, self.C0, self.C1, self.C2, self.C3, self.C4, self.C5))
     def __eq__(self, other):
@@ -515,6 +585,17 @@ class Dihedral(EntryBase):
                     return True
                 else:
                     return False
+            else:
+                return False
+        elif self.func == 2:
+            self_values = (self.C0, self.C1,
+                           self.C0B, self.C1B, )
+            other_values = (other.C0, other.C1,
+                           other.C0B, other.C1B, )
+            if (self.func) == (other.func) and \
+                    (self_values == other_values or np.isclose(self_values, other_values, atol=0.01)) and \
+                    (self.i, self.j, self.k, self.l) == (other.i, other.j, other.k, other.l):
+                return True
             else:
                 return False
         elif self.func == 3:
@@ -590,6 +671,10 @@ class Dihedral(EntryBase):
                 new.kdB = other.kd
                 new.phaseB = other.phase
                 new.pnB = other.pn
+            elif new.func == 2 and np.isclose(self.C0, other.C0, atol=0.01) and np.isclose(self.C1, other.C1, atol=0.01):
+                new.comment = join_comment(new.comment, other.comment)
+                new.C0B = other.C0
+                new.C1B = other.C1
             else:
                 return False
             return new
@@ -601,6 +686,8 @@ class Dihedral(EntryBase):
         dummy.comment = 'Dummy'
         if dummy.func in [1, 4, 9]:
             dummy.kd = '0.0'
+        elif dummy.func == 2:
+            dummy.C1 = '0.0'
         return dummy
 
     def to_stateB(self):
@@ -614,6 +701,13 @@ class Dihedral(EntryBase):
             if self.kdB != '':
                 self.kd = self.kdB
                 self.kdB = ''
+        elif self.func == 2:
+            if self.C0B != '':
+                self.C0 = self.C0B
+                self.C0B = ''
+            if self.C1B != '':
+                self.C1 = self.C1B
+                self.C1B = ''
         else:
             if self.C0B != '':
                 self.C0, self.C1, self.C2, self.C3, self.C4, self.C5 = self.C0B, self.C1B, self.C2B, self.C3B, self.C4B, self.C5B
