@@ -372,13 +372,14 @@ class Angle(EntryBase):
                                                                                                  self.th0B, self.cthB,
                                                                                                  self.comment)
         elif self.func == 5:
-            return
-            '{: <7} {: <7} {: <7} {: <6} {: <10} {: <10} {: <10} {: <10} {: <10} {: <10} {: <10} {: <10} ; {}'.format(
+            return '{: <7} {: <7} {: <7} {: <6} {: <10} {: <10} {: <10} {: <10} {: <10} {: <10} {: <10} {: <10} ; {}'.format(
                 self.i, self.j,
                 self.k, self.func,
                 self.C0, self.C1, self.C2, self.C3,
                 self.C0B, self.C1B, self.C2B, self.C3B,
                 self.comment)
+        else:
+            raise NotImplementedError
     def __eq__(self, other):
         if (self.i == other.i) and (self.j == other.j) and (self.k == other.k) and \
                 (self.func == other.func):
@@ -395,8 +396,10 @@ class Angle(EntryBase):
         else:
             return False
     def __repr__(self): # pragma: no cover
-        return str((self.i, self.j, self.k, self.func, self.th0, self.cth))
-
+        if self.func == 1:
+            return str((self.i, self.j, self.k, self.func, self.th0, self.cth))
+        elif self.func == 5:
+            return str((self.i, self.j, self.k, self.func, self.C0, self.C1, self.C2, self.C3))
     def update_idx(self, mapping, sort=True):
         i = mapping[self.i]
         j = mapping[self.j]

@@ -1,6 +1,7 @@
 from .entry import Comment, Atomtype, Atom, Bond, Pair, Angle, Dihedral, Cmap
 import copy
 import numpy as np
+from collections import defaultdict
 
 class Field():
     def __init__(self, name):
@@ -365,8 +366,28 @@ class Dihedrals(Field):
 
     def sort(self):
         self.merge_comment()
-        # Make sure that it is sorted by func, phase and pn
-        self.content.sort(key = lambda x: (x.i, x.j, x.k, x.l, x.func, x.phase, x.pn))
+        def sort_149(dihedral_list):
+            # Sort dihedral type 1 4 9
+            # Make sure that it is sorted by func, phase and pn
+            # As multiple lines can exist for the same dihedral angle
+            dihedral_list.sort(key = lambda x: (x.i, x.j, x.k, x.l, x.func, x.phase, x.pn))
+        def sort(dihedral_list):
+            dihedral_list.sort(
+                key=lambda x: (x.i, x.j, x.k, x.l, x.func))
+
+        dihedral_dict = defaultdict(list)
+        for dihedral in self.content:
+            dihedral_dict[dihedral.func].append(dihedral)
+        new_dihedral_list = []
+        for func in sorted(list(dihedral_dict.keys())):
+            if int(func) in [1, 4, 9]:
+                sort_149(dihedral_dict[func])
+                new_dihedral_list.extend(dihedral_dict[func])
+            else:
+                sort(dihedral_dict[func])
+                new_dihedral_list.extend(dihedral_dict[func])
+
+        self.content = new_dihedral_list
 
     def remove_zero(self):
         new_content = []
