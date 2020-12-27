@@ -157,11 +157,17 @@ class Atom(EntryBase):
 
     def add_coul0(self):
         '''Add a new B state with charge of 0'''
+        self.copy2stateB()
+        self.chargeB = 0
+
+    def copy2stateB(self):
+        '''Copy the current state to state B'''
         if self.typeB == '':
             self.typeB = self.type
         if self.massB == '':
             self.massB = self.mass
-        self.chargeB = 0
+        if self.chargeB == '':
+            self.chargeB = self.charge
 
     def to_stateB(self):
         if self.typeB != '':

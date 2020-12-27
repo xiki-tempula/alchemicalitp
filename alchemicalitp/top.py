@@ -33,6 +33,15 @@ class Topology():
             atom.add_coul0()
         return new_top
 
+    def assign_stateB_charge(self, charge_list):
+        new_top = copy.deepcopy(self)
+        new_top.content_dict['atoms'].merge_comment()
+        for atom, charge in zip(new_top.content_dict['atoms'], charge_list):
+            atom.copy2stateB()
+            atom.chargeB = charge
+
+        return new_top
+
     def to_stateB(self):
         new_top = copy.deepcopy(self)
         new_top.content_dict['atoms'].to_stateB()

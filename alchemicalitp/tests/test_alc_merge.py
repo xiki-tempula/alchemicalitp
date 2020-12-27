@@ -203,13 +203,13 @@ def test_unchanged_dihedrals(to_dum):
 def test_changed_dihedrals(to_dum):
     # test that bonds are changed
     glu, glh, glh2glu, mapping = to_dum
-    dihedral = glh.content_dict['dihedrals'][12]
+    dihedral = glh.content_dict['dihedrals'][11]
     assert (dihedral.i, dihedral.j, dihedral.k, dihedral.l, dihedral.func, dihedral.phase, dihedral.kd, dihedral.pn,
             dihedral.phaseB, dihedral.kdB, dihedral.pnB) ==(5, 7, 9, 10, 1, 0.0, '1.6182875', 2, '', '', '')
-    dihedral = glu.content_dict['dihedrals'][12]
+    dihedral = glu.content_dict['dihedrals'][11]
     assert (dihedral.i, dihedral.j, dihedral.k, dihedral.l, dihedral.func, dihedral.phase, dihedral.kd, dihedral.pn,
             dihedral.phaseB, dihedral.kdB, dihedral.pnB) == (5, 7, 9, 10, 1, 0.0, '2.3499018', 2, '', '', '')
-    dihedral = glh2glu.content_dict['dihedrals'][12]
+    dihedral = glh2glu.content_dict['dihedrals'][11]
     assert (dihedral.i, dihedral.j, dihedral.k, dihedral.l, dihedral.func, dihedral.phase, dihedral.kd, dihedral.pn,
             dihedral.phaseB, dihedral.kdB, dihedral.pnB) == (5, 7, 9, 10, 1, 0.0, '1.6182875', 2, 0.0, '2.3499018', 2)
 
@@ -217,13 +217,13 @@ def test_dihedral2dum(to_dum):
     # test the dihedral exits in one top but doesn't exist in the next due to the absence of the dummy atom
     # Thus, to ensure that the dummy atom stay in its place, the dihedral needs to be enforced
     glu, glh, glh2glu, mapping = to_dum
-    dihedral = glh.content_dict['dihedrals'][75]
+    dihedral = glh.content_dict['dihedrals'][72]
     assert (dihedral.i, dihedral.j, dihedral.k, dihedral.l, dihedral.func, dihedral.phase, dihedral.kd, dihedral.pn,
             dihedral.phaseB, dihedral.kdB, dihedral.pnB) ==(14, 17, 19, 20, 1, 180.0000771, '10.1273302', 2, '', '', '')
-    dihedral = glu.content_dict['dihedrals'][75]
+    dihedral = glu.content_dict['dihedrals'][88]
     assert (dihedral.i, dihedral.j, dihedral.k, dihedral.l, dihedral.func, dihedral.phase, dihedral.kd, dihedral.pn,
             dihedral.phaseB, dihedral.kdB, dihedral.pnB) == (14, 18, 17, 19, 4, 180.0000771, '43.9320000', 2, '', '', '')
-    dihedral = glh2glu.content_dict['dihedrals'][75]
+    dihedral = glh2glu.content_dict['dihedrals'][72]
     assert (dihedral.i, dihedral.j, dihedral.k, dihedral.l, dihedral.func, dihedral.phase, dihedral.kd, dihedral.pn,
             dihedral.phaseB, dihedral.kdB, dihedral.pnB) == (14, 17, 19, 20, 1, 180.0000771, '10.1273302', 2, '', '', '')
 
@@ -232,7 +232,7 @@ def test_dum2dihedral(dum_to):
     # atom not being there
     # Thus, to ensure that the dummy atom stay in its place, the dihedral needs to be enforced
     glu, glh, glu2glh, mapping = dum_to
-    dihedral = glu2glh.content_dict['dihedrals'][75]
+    dihedral = glu2glh.content_dict['dihedrals'][72]
     assert (dihedral.i, dihedral.j, dihedral.k, dihedral.l, dihedral.func, dihedral.phase, dihedral.kd, dihedral.pn,
             dihedral.phaseB, dihedral.kdB, dihedral.pnB) == (14, 17, 19, 20, 1, 180.0000771, '10.1273302', 2, '', '', '')
 
@@ -240,13 +240,13 @@ def test_dihedral2zero(to_dum):
     # The dihedral in the first is in absence in the second top due to topology difference
     # should be set to zero in this case
     glu, glh, glh2glu, mapping = to_dum
-    dihedral = glh.content_dict['dihedrals'][78]
+    dihedral = glh.content_dict['dihedrals'][74]
     assert (dihedral.i, dihedral.j, dihedral.k, dihedral.l, dihedral.func, dihedral.phase, dihedral.kd, dihedral.pn,
             dihedral.phaseB, dihedral.kdB, dihedral.pnB) ==(15, 14, 17, 18, 1, 0.0, '-0.5486898', 2, '', '', '')
-    dihedral = glu.content_dict['dihedrals'][78]
+    dihedral = glu.content_dict['dihedrals'][74]
     assert (dihedral.i, dihedral.j, dihedral.k, dihedral.l, dihedral.func, dihedral.phase, dihedral.kd, dihedral.pn,
             dihedral.phaseB, dihedral.kdB, dihedral.pnB) == (16, 14, 17, 18, 1, 0.0, '-0.5294015', 2, '', '', '')
-    dihedral = glh2glu.content_dict['dihedrals'][78]
+    dihedral = glh2glu.content_dict['dihedrals'][74]
     assert (dihedral.i, dihedral.j, dihedral.k, dihedral.l, dihedral.func, dihedral.phase, dihedral.kd, dihedral.pn,
             dihedral.phaseB, dihedral.kdB, dihedral.pnB) == (15, 14, 17, 18, 1, 0.0, '-6.0489343', 1, 0.0, '0.0', 1)
 
@@ -254,7 +254,7 @@ def test_zero2dihedral(dum_to):
     # The inverse of test_dihedral2zero where where the dihedral is in absence in the first top
     # should set to zero
     glu, glh, glu2glh, mapping = dum_to
-    dihedral = glu2glh.content_dict['dihedrals'][77]
+    dihedral = glu2glh.content_dict['dihedrals'][73]
     assert (dihedral.i, dihedral.j, dihedral.k, dihedral.l, dihedral.func, dihedral.phase, dihedral.kd, dihedral.pn,
             dihedral.phaseB, dihedral.kdB, dihedral.pnB) == (15, 14, 17, 18, 1, 0.0, '0.0', 1, 0.0, '-6.0489343', 1)
 
