@@ -19,6 +19,10 @@ then do::
     cd alchemicalitp
     pip install .
 
+Uasge
+----------------------
+Please see the full documentation from RTD. https://alchemicalitp.readthedocs.io/
+
 ### Copyright
 
 Copyright (c) 2020, Zhiyi Wu
