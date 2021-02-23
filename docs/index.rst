@@ -16,7 +16,7 @@ performing alchemical transformations.
    FEP
    rules
    mdp
-   api
+   coul0
 
 
 
