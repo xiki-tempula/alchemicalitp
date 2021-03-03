@@ -107,6 +107,8 @@ class Alchemistry():
                         # Only increment the number when the atom B is not skipped previously
                         if atom_B_nr in skip_state_B:
                             pass
+                        elif atom_B_nr in self.top_B_list:
+                            skip_state_B.append(atom_B_nr)
                         else:
                             top_B_idx += 1
                         new_atom.typeB = self.top_B.content_dict['atoms'].atom_idx2attr(atom_B_nr, 'type')
