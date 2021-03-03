@@ -297,3 +297,28 @@ def test_alchem():
     assert mapping2[26] == 27
     assert mapping2[31] == 33
     assert mapping2[25] == 46
+
+def test_alchemB():
+    # Test the case where if the atom in topology A maps to a later atom in
+    # topology B, the atoms counter in topology B will still progress even if
+    # the actual atom is not being used.
+    state_A = alchemicalitp.top.Topology(
+        filename=resource_filename(__name__, 'example/a.itp'))
+    state_B = alchemicalitp.top.Topology(
+        filename=resource_filename(__name__, 'example/b.itp'))
+    new, mapping = state_A.add_stateB(state_B,
+                                      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                                       13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
+                                       23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
+                                       33, 34, 35, 36, 37, 38, 39, 40, 41, 42,
+                                       43, 44, 45, None, None, None, None, None,
+                                       None, None, None, None, ],
+                                      [3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15,
+                                       16, 17, 18, 19, 20, 21, 23, 24, 25, 26,
+                                       9, 27, 28, None, None, None, 30, 31, 29,
+                                       45, 46, 22, 48, 49, 47, 39, 40, 41, 42,
+                                       43, 44, 50, 51, 1, 2, 32, 33, 34, 35, 36,
+                                       37, 38, ])
+    mapping1, mapping2 = mapping
+    assert len(mapping1) == 45
+
