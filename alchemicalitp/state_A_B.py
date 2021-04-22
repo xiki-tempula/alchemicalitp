@@ -30,8 +30,19 @@ class Alchemistry():
 
     def _merge_defaults(self):
         if 'defaults' in self.top_A.content_dict and 'defaults' in self.top_B.content_dict:
-            assert self.top_A.content_dict['defaults'] == self.top_B.content_dict['defaults']
-            self.content_dict['defaults'] = self.top_A.content_dict['defaults']
+            # if there is no dihedral in the topology file
+            # the fudgeLJ and fudgeQQ will be set to 1 instead of the usual value
+            if 'dihedrals' in self.top_A.content_dict and 'dihedrals' in self.top_B.content_dict:
+                assert self.top_A.content_dict['defaults'] == self.top_B.content_dict['defaults']
+                self.content_dict['defaults'] = self.top_A.content_dict['defaults']
+            else:
+                if 'dihedrals' in self.top_A.content_dict:
+                    self.content_dict['defaults'] = self.top_A.content_dict[
+                        'defaults']
+                else:
+                    self.content_dict['defaults'] = self.top_B.content_dict[
+                        'defaults']
+
 
     def _merge_atomtypes(self):
         if 'atomtypes' in self.top_A.content_dict and 'atomtypes' in self.top_B.content_dict:
@@ -246,22 +257,41 @@ class Alchemistry():
         self.content_dict['bonds'] = new_bond
 
     def _merge_pairs(self):
-        top_A_pair = self.top_A.content_dict['pairs']
-        top_B_pair = self.top_B.content_dict['pairs']
+        if 'pairs' in self.top_A.content_dict:
+            top_A_pair = self.top_A.content_dict['pairs']
+        else:
+            top_A_pair = Pairs()
+        if 'pairs' in self.top_B.content_dict:
+            top_B_pair = self.top_B.content_dict['pairs']
+        else:
+            top_B_pair = Pairs()
         new_pair = Pairs()
         self._merge_entries(top_A_pair, top_B_pair, new_pair)
         self.content_dict['pairs'] = new_pair
 
     def _merge_angles(self):
-        top_A_angle = self.top_A.content_dict['angles']
-        top_B_angle = self.top_B.content_dict['angles']
+        if 'angles' in self.top_A.content_dict:
+            top_A_angle = self.top_A.content_dict['angles']
+        else:
+            top_A_angle = Angles()
+        if 'angles' in self.top_B.content_dict:
+            top_B_angle = self.top_B.content_dict['angles']
+        else:
+            top_B_angle = Angles()
         new_angle = Angles()
         self._merge_entries(top_A_angle, top_B_angle, new_angle)
         self.content_dict['angles'] = new_angle
 
     def _merge_dihedrals(self):
-        top_A_dihedral = self.top_A.content_dict['dihedrals']
-        top_B_dihedral = self.top_B.content_dict['dihedrals']
+        if 'dihedrals' in self.top_A.content_dict:
+            top_A_dihedral = self.top_A.content_dict['dihedrals']
+        else:
+            top_A_dihedral = Dihedrals()
+        if 'dihedrals' in self.top_B.content_dict:
+            top_B_dihedral = self.top_B.content_dict['dihedrals']
+        else:
+            top_B_dihedral = Dihedrals()
+
         new_dihedral = Dihedrals()
         self._merge_entries(top_A_dihedral, top_B_dihedral, new_dihedral)
         self.content_dict['dihedrals'] = new_dihedral

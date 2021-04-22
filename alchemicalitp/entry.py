@@ -265,6 +265,11 @@ class Pair(EntryBase):
         else:
             return False
 
+    def create_dummy(self):
+        dummy = copy.copy(self)
+        dummy.comment = 'Dummy'
+        return dummy
+
 class Bond(Pair):
     def __init__(self, i, j, func, comment='', **kwargs):
         # Make sure that the entry is sorted
@@ -721,5 +726,3 @@ class Dihedral(EntryBase):
             if self.C0B != '':
                 self.C0, self.C1, self.C2, self.C3, self.C4, self.C5 = self.C0B, self.C1B, self.C2B, self.C3B, self.C4B, self.C5B
                 self.C0B, self.C1B, self.C2B, self.C3B, self.C4B, self.C5B = [0, ] * 6
-
-

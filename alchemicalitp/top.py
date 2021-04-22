@@ -77,7 +77,8 @@ class Topology():
     #     return new_top
 
     def remove_zero(self):
-        self.content_dict['dihedrals'] = self.content_dict['dihedrals'].remove_zero()
+        if 'dihedrals' in self.content_dict:
+            self.content_dict['dihedrals'] = self.content_dict['dihedrals'].remove_zero()
 
     def split_coul(self, charge_conservation=None):
         # From state A to intermediate
