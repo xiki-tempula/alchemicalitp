@@ -36,10 +36,19 @@ class Topology():
     def assign_stateB_charge(self, charge_list):
         new_top = copy.deepcopy(self)
         new_top.content_dict['atoms'].merge_comment()
+        assert len(charge_list) == len(new_top.content_dict['atoms'])
         for atom, charge in zip(new_top.content_dict['atoms'], charge_list):
             atom.copy2stateB()
             atom.chargeB = charge
 
+        return new_top
+
+    def assign_stateA_charge(self, charge_list):
+        new_top = copy.deepcopy(self)
+        new_top.content_dict['atoms'].merge_comment()
+        assert len(charge_list) == len(new_top.content_dict['atoms'])
+        for atom, charge in zip(new_top.content_dict['atoms'], charge_list):
+            atom.charge = charge
         return new_top
 
     def to_stateB(self):
